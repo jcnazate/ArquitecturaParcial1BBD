@@ -9,11 +9,11 @@ using ws_eureka_bank_soap_dotnet.ec.edu.monster.model;
 namespace ws_eureka_bank_soap_dotnet.ec.edu.monster.contracts
 {
     // NOTA: puede usar el comando "Cambiar nombre" del menú "Refactorizar" para cambiar el nombre de interfaz "ICuentaServicio" en el código y en el archivo de configuración a la vez.
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://tempuri.org/")]
     public interface ICuentaServicio
     {
         [OperationContract]
-        bool Deposito(string cuenta, string monto, string tipo, string cd);
+        bool Deposito(string cuenta, string monto, string tipo, string cuentaDestino);
 
         [OperationContract]
         CuentaModel ObtenerCuentaPorNumero(string cuenta);

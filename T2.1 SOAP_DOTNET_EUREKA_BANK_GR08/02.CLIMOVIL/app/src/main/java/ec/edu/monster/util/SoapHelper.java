@@ -47,8 +47,12 @@ public class SoapHelper {
             if (svc.equals("wscuenta") || svc.equals("cuentaservicio")) {
                 url = CUENTA_URL;
                 // Java antiguo usaba "cuenta" -> en WCF es "Deposito"
-                if (mappedMethod.equalsIgnoreCase("cuenta")) mappedMethod = "Deposito";
-                // Mantén otros: "ObtenerCuentaPorNumero", etc.
+                if (mappedMethod.equalsIgnoreCase("cuenta")) {
+                    mappedMethod = "Deposito";
+                } else if (mappedMethod.equalsIgnoreCase("obtenerCuentaPorNumero")) {
+                    // El servidor espera el nombre exacto con mayúscula inicial
+                    mappedMethod = "ObtenerCuentaPorNumero";
+                }
                 soapAction = NAMESPACE + "ICuentaServicio/" + mappedMethod;
 
             } else if (svc.equals("wslogin") || svc.equals("loginservicio")) {
@@ -129,9 +133,29 @@ public class SoapHelper {
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(new org.xml.sax.InputSource(new java.io.StringReader(xml)));
 
-            // Busca <AuthResult>, <DepositoResult>, etc., respetando el case del método
-            NodeList n = doc.getElementsByTagNameNS("*", methodName + "Result");
-            if (n.getLength() == 0) n = doc.getElementsByTagNameNS("*", "return");
+            // Busca <AuthResult>, <DepositoResult>, etc., case-insensitive
+            String methodNameCapitalized = methodName.substring(0, 1).toUpperCase() + 
+                                          (methodName.length() > 1 ? methodName.substring(1) : "");
+            NodeList n = doc.getElementsByTagNameNS("*", methodNameCapitalized + "Result");
+            if (n.getLength() == 0) {
+                // También busca con el nombre tal cual viene
+                n = doc.getElementsByTagNameNS("*", methodName + "Result");
+            }
+            if (n.getLength() == 0) {
+                // Busca "return" como fallback
+                n = doc.getElementsByTagNameNS("*", "return");
+            }
+            if (n.getLength() == 0) {
+                // Busca cualquier nodo que contenga "Result" al final
+                NodeList allNodes = doc.getElementsByTagNameNS("*", "*");
+                for (int i = 0; i < allNodes.getLength(); i++) {
+                    String nodeName = allNodes.item(i).getLocalName();
+                    if (nodeName != null && nodeName.endsWith("Result")) {
+                        n = doc.getElementsByTagNameNS("*", nodeName);
+                        break;
+                    }
+                }
+            }
             if (n.getLength() == 0) return false;
 
             return "true".equalsIgnoreCase(n.item(0).getTextContent().trim());
@@ -192,13 +216,17 @@ public class SoapHelper {
         return lastResp;
     }
 
-    /** Convierte prefijos viejos y limpia nil accidentales */
+    /** Convierte prefijos viejos y limpia nil accidentales (pero preserva xsi:nil en elementos completos) */
     private static String sanitizeBody(String body) {
         if (body == null) return "";
         String fixed = body.replace("ws:", "tem:");
         fixed = fixed.replace("xmlns:ws=\"http://ws.monster.edu.ec/\"", "");
-        fixed = fixed.replace("xsi:nil=\"true\"", "");
-        fixed = fixed.replace("i:nil=\"true\"", "");
+        // No eliminar xsi:nil aquí porque cuentaDeposito lo maneja correctamente
+        // Solo eliminar si está suelto sin contexto (caso edge)
+        if (fixed.contains("xsi:nil=\"true\"")) {
+            // Si ya tiene el xmlns:xsi, dejarlo; sino, no tocarlo
+            // El método cuentaDeposito ya maneja correctamente los nil
+        }
         return fixed;
     }
 

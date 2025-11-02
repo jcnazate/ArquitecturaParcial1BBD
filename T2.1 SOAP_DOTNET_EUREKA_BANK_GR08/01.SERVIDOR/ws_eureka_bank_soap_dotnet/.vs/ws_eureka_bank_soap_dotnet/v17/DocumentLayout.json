@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,7 +27,7 @@
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.service\\movimientoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\icuentaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\icuentaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.contracts\\icuentaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -166,8 +166,7 @@
               "RelativeToolTip": "ec.edu.monster.contracts\\ICuentaServicio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:23:17.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:23:17.733Z"
             },
             {
               "$type": "Document",
@@ -179,8 +178,7 @@
               "RelativeToolTip": "App.config",
               "ViewState": "AgIAAD8AAAAAAAAAAAAIwFEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-11-01T22:16:04.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:16:04.259Z"
             },
             {
               "$type": "Document",
@@ -192,8 +190,7 @@
               "RelativeToolTip": "ec.edu.monster.service\\MovimientoService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:15:04.824Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:15:04.824Z"
             },
             {
               "$type": "Document",
@@ -229,8 +226,7 @@
               "RelativeToolTip": "ec.edu.monster.DAO\\CuentaDAO.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAkwEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T21:59:22.447Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T21:59:22.447Z"
             },
             {
               "$type": "Document",
@@ -255,8 +251,7 @@
               "RelativeToolTip": "ec.edu.monster.model\\MovimientoModel.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T21:57:10.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T21:57:10.113Z"
             },
             {
               "$type": "Document",
@@ -268,8 +263,7 @@
               "RelativeToolTip": "ec.edu.monster.model\\CuentaModel.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T21:55:44.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T21:55:44.398Z"
             }
           ]
         }

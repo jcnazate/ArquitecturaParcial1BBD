@@ -1,6 +1,6 @@
 package ec.edu.monster.service;
 
-
+import android.util.Log;
 import ec.edu.monster.model.CuentaModel;
 import ec.edu.monster.util.SoapHelper;
 
@@ -8,16 +8,12 @@ public class CuentaService {
 
     public boolean realizarDeposito(String cuenta, String monto, String tipo, String cd) {
         try {
-            String soapBody = "<cuenta>" + cuenta + "</cuenta>" +
-                    "<monto>" + monto + "</monto>" +
-                    "<tipo>" + tipo + "</tipo>" +
-                    (cd != null ? "<cd>" + cd + "</cd>" : "");
-
-            String response = SoapHelper.callWebService("WSCuenta", "cuenta", soapBody);
+            // Usa el método específico de SoapHelper que maneja correctamente los parámetros y valores null
+            String response = SoapHelper.cuentaDeposito(cuenta, monto, tipo, cd);
 
             if (response != null) {
-                return response.contains("<return>true</return>") ||
-                        response.contains("<ns2:return>true</ns2:return>");
+                // Usa el parser robusto de SoapHelper
+                return SoapHelper.parseSoapBoolean(response, "Deposito");
             }
 
             return false;
@@ -26,29 +22,55 @@ public class CuentaService {
             return false;
         }
     }
+
+    private static final String TAG = "CUENTA";
 
     public CuentaModel obtenerCuentaPorNumero(String cuenta) {
         try {
-            String soapBody = "<cuenta>" + cuenta + "</cuenta>";
+            // Usa el prefijo tem: para WCF
+            String soapBody = "<tem:cuenta>" + cuenta + "</tem:cuenta>";
 
             String response = SoapHelper.callWebService("WSCuenta", "obtenerCuentaPorNumero", soapBody);
-
-            if (response != null && response.contains("decCuenSaldo")) {
+            
+            if (response != null) {
+                Log.d(TAG, "Respuesta obtenerCuentaPorNumero: " + (response.length() > 500 ? response.substring(0, 500) + "..." : response));
+                
                 CuentaModel cuentaModel = new CuentaModel();
 
-                // Parsear XML manualmente (simplificado)
-                String saldoStr = extractTagContent(response, "decCuenSaldo");
-                String contadorStr = extractTagContent(response, "intCuenContMov");
+                // Buscar campos con diferentes variaciones (con/sin prefijos, mayúsculas/minúsculas)
+                String saldoStr = extractTagContent(response, "decCuenSaldo", "DecCuenSaldo");
+                String contadorStr = extractTagContent(response, "intCuenContMov", "IntCuenContMov");
+                String codigoStr = extractTagContent(response, "chrCuenCodigo", "ChrCuenCodigo");
 
-                if (saldoStr != null) {
-                    cuentaModel.setDecCuenSaldo(Double.parseDouble(saldoStr));
+                if (saldoStr != null && !saldoStr.isEmpty()) {
+                    try {
+                        cuentaModel.setDecCuenSaldo(Double.parseDouble(saldoStr));
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
                 }
-                if (contadorStr != null) {
-                    cuentaModel.setIntCuenContMov(Integer.parseInt(contadorStr));
+                if (contadorStr != null && !contadorStr.isEmpty()) {
+                    try {
+                        cuentaModel.setIntCuenContMov(Integer.parseInt(contadorStr));
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
                 }
-                cuentaModel.setStrCuenNumero(cuenta);
+                if (codigoStr != null && !codigoStr.isEmpty()) {
+                    cuentaModel.setStrCuenNumero(codigoStr);
+                } else {
+                    cuentaModel.setStrCuenNumero(cuenta);
+                }
 
-                return cuentaModel;
+                // Si al menos el saldo fue encontrado, devolver el modelo
+                if (saldoStr != null || contadorStr != null || codigoStr != null) {
+                    Log.d(TAG, "Cuenta parseada: saldo=" + cuentaModel.getDecCuenSaldo() + 
+                          " contador=" + cuentaModel.getIntCuenContMov() + 
+                          " cuenta=" + cuentaModel.getStrCuenNumero());
+                    return cuentaModel;
+                } else {
+                    Log.w(TAG, "No se encontraron campos en la respuesta SOAP");
+                }
             }
 
             return null;
@@ -58,18 +80,35 @@ public class CuentaService {
         }
     }
 
-    private String extractTagContent(String xml, String tag) {
-        try {
-            String openTag = "<" + tag + ">";
-            String closeTag = "</" + tag + ">";
-            int start = xml.indexOf(openTag);
-            int end = xml.indexOf(closeTag);
-
-            if (start != -1 && end != -1) {
-                return xml.substring(start + openTag.length(), end).trim();
+    private String extractTagContent(String xml, String... tagVariations) {
+        if (xml == null || tagVariations == null) return null;
+        
+        // Buscar cada variación del tag (con/sin prefijos, mayúsculas/minúsculas)
+        for (String tag : tagVariations) {
+            // Buscar con prefijos comunes: <a:tag>, <tag>, etc.
+            String[] patterns = {
+                "<a:" + tag + ">",
+                "<" + tag + ">",
+                "<" + tag.toLowerCase() + ">",
+                "<" + tag.toUpperCase() + ">"
+            };
+            
+            for (String pattern : patterns) {
+                String openTag = pattern;
+                String closeTag = openTag.replace("<", "</");
+                
+                int start = xml.indexOf(openTag);
+                if (start != -1) {
+                    start += openTag.length();
+                    int end = xml.indexOf(closeTag, start);
+                    if (end != -1) {
+                        String content = xml.substring(start, end).trim();
+                        if (!content.isEmpty()) {
+                            return content;
+                        }
+                    }
+                }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return null;
     }

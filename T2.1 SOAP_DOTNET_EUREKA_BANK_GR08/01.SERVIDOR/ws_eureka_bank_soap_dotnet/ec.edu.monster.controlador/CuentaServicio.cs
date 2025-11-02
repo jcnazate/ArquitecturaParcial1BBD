@@ -14,9 +14,9 @@ namespace ws_eureka_bank_soap_dotnet.ec.edu.monster.contracts
     {
         private readonly CuentaService _servicio = new CuentaService();
 
-        public bool Deposito(string cuenta, string monto, string tipo, string cd)
+        public bool Deposito(string cuenta, string monto, string tipo, string cuentaDestino)
         {
-            return _servicio.ActualizarSaldoYRegistrarMovimiento(cuenta, monto, tipo, cd);
+            return _servicio.ActualizarSaldoYRegistrarMovimiento(cuenta, monto, tipo, cuentaDestino);
         }
 
         public CuentaModel ObtenerCuentaPorNumero(string cuenta)

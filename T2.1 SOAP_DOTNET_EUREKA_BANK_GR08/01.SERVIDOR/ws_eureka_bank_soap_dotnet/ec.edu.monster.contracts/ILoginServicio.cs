@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ws_eureka_bank_soap_dotnet.ec.edu.monster.contracts
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://tempuri.org/")]
     public interface ILoginServicio
     {
         [OperationContract]

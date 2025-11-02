@@ -61,8 +61,9 @@ public class MovimientoService {
 
             // 4) Normaliza (quita prefijos de namespace, cabecera xml, envuelve si hace falta)
             String normalized = response
-                    .replaceAll("<(/)?[a-zA-Z0-9]+:", "<$1")        // quita prefijos
+                    .replaceAll("<(/)?[a-zA-Z0-9]+:", "<$1")        // quita prefijos a:, s:, etc.
                     .replaceAll("^\\s*<\\?xml[\\s\\S]*?\\?>", "")   // quita declaración xml
+                    .replaceAll("xmlns[^=]*=\"[^\"]*\"", "")        // quita atributos xmlns
                     .trim();
             if (!normalized.startsWith("<root")) {
                 normalized = "<root>" + normalized + "</root>";
@@ -91,14 +92,25 @@ public class MovimientoService {
                         }
 
                         String val = safeNextText(xpp).trim();
-                        switch (name) {
-                            case "numeroMovimiento":   cur.setNumeroMovimiento(parseInt(val));      break;
-                            case "fechaMovimiento":    cur.setFechaMovimiento(val);                 break;
-                            case "codigoTipoMovimiento": cur.setCodigoTipoMovimiento(val);         break;
-                            case "tipoDescripcion":    cur.setTipoDescripcion(val);                 break;
-                            case "importeMovimiento":  cur.setImporteMovimiento(parseDecimal(val)); break;
-                            case "cuentaReferencia":   cur.setCuentaReferencia(val);                break;
-                            case "saldo":              cur.setSaldo(parseDecimal(val));             break;
+                        String nameLower = name.toLowerCase();
+                        
+                        // Usa equalsIgnoreCase para manejar PascalCase y camelCase
+                        if ("numeromovimiento".equals(nameLower)) {
+                            cur.setNumeroMovimiento(parseInt(val));
+                        } else if ("fechamovimiento".equals(nameLower)) {
+                            cur.setFechaMovimiento(val);
+                        } else if ("codigotipomovimiento".equals(nameLower)) {
+                            cur.setCodigoTipoMovimiento(val);
+                        } else if ("tipodescripcion".equals(nameLower)) {
+                            cur.setTipoDescripcion(val);
+                        } else if ("importemovimiento".equals(nameLower)) {
+                            cur.setImporteMovimiento(parseDecimal(val));
+                        } else if ("cuentareferencia".equals(nameLower)) {
+                            cur.setCuentaReferencia(val);
+                        } else if ("saldo".equals(nameLower)) {
+                            cur.setSaldo(parseDecimal(val));
+                        } else {
+                            Log.d(TAG, "Campo desconocido: " + name + " = " + val);
                         }
 
                         // nextText() ya avanzó el cursor al END_TAG del campo
@@ -107,11 +119,24 @@ public class MovimientoService {
                     }
 
                 } else if (event == XmlPullParser.END_TAG) {
-                    if (cur != null && xpp.getDepth() == itemDepth) {
+                    String tagName = xpp.getName();
+                    // Detectar fin de MovimientoModel o cualquier tag que termine con "MovimientoModel"
+                    if (cur != null && ("MovimientoModel".equalsIgnoreCase(tagName) || tagName != null && tagName.endsWith("MovimientoModel"))) {
                         if (cur.getNumeroMovimiento() != 0) {
                             out.add(cur);
+                            Log.d(TAG, "Movimiento agregado: nro=" + cur.getNumeroMovimiento() + " saldo=" + cur.getSaldo());
                         } else {
-                            Log.d(TAG, "Descartado bloque sin numeroMovimiento (depth=" + itemDepth + ")");
+                            Log.w(TAG, "Descartado bloque sin numeroMovimiento válido (depth=" + xpp.getDepth() + ", tag=" + tagName + ")");
+                        }
+                        cur = null;
+                        itemDepth = -1;
+                    } else if (cur != null && xpp.getDepth() == itemDepth) {
+                        // Fallback: si llegamos a la profundidad esperada
+                        if (cur.getNumeroMovimiento() != 0) {
+                            out.add(cur);
+                            Log.d(TAG, "Movimiento agregado (fallback): nro=" + cur.getNumeroMovimiento());
+                        } else {
+                            Log.w(TAG, "Descartado bloque sin numeroMovimiento (depth=" + itemDepth + ", tag=" + tagName + ")");
                         }
                         cur = null;
                         itemDepth = -1;

@@ -33,8 +33,8 @@ public class LoginService {
                 Log.d(TAG, "SOAP-RAW: " + shortResp);
             }
 
-            // 5) Parseo robusto: <authResult> o <return>
-            boolean ok = SoapHelper.parseSoapBoolean(response, "auth");
+            // 5) Parseo robusto: <AuthResult> o <return> (usa "Auth" para coincidir con el método del servidor)
+            boolean ok = SoapHelper.parseSoapBoolean(response, "Auth");
             Log.d(TAG, "SOAP-PARSED auth=" + ok);
 
             // 6) Fallback ultra-defensivo: si aparece >true< en cualquier nodo
