@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EurekaBank - Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-body">
+    <h1 class="bank-title">EUREKABANK - SOAP</h1>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-content">
+                <div class="form-and-button">
+                    <form id="loginForm">
+                        <label for="username">Usuario</label>
+                        <input type="text" id="username" placeholder="Usuario" required>
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" placeholder="Contraseña" required>
+                    </form>
+                    <button type="submit" class="btn-primary" form="loginForm">Login</button>
+                </div>
+            </div>
+        </div>
+        <img src="/images/sully.png" alt="Sully and Mike" class="characters">
+    </div>
+    <div id="modal-container"></div> <!-- Container for modal -->
+    <script>
+        fetch('/modal.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('modal-container').innerHTML = html;
+                const modalOkButton = document.getElementById('modal-ok-button');
+                if (modalOkButton) {
+                    modalOkButton.addEventListener('click', closeModal);
+                }
+            });
+    </script>
+    <script type="module" src="/controller/modal.js"></script>
+    <script type="module" src="/controller/login.js"></script>
+</body>
+
+</html>
