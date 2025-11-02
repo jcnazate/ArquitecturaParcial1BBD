@@ -3,70 +3,70 @@
   "WorkspaceRootPath": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.model\\movimientomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.model\\movimientomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.model\\cuentamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.model\\cuentamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.dao\\cuentadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.dao\\cuentadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\movimientoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.service\\movimientoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\icuentaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.contracts\\icuentaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\iloginservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\iloginservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.contracts\\iloginservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\imovimientoservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\imovimientoservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.contracts\\imovimientoservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\cuentaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\cuentaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.service\\cuentaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.controlador\\movimientoservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.controlador\\movimientoservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.controlador\\movimientoservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.controlador\\cuentaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.controlador\\cuentaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.controlador\\cuentaservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.dao\\cuentadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.dao\\cuentadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.controlador\\loginservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.controlador\\loginservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.controlador\\loginservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.service\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\movimientoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.service\\movimientoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.model\\cuentamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.model\\cuentamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\octavo semestre\\arquitectura\\unidad1-talleres-bdd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.model\\movimientomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.model\\movimientomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 100,
+      "VerticalTabListWidth": 567,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "MovimientoServicio.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.controlador\\MovimientoServicio.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.controlador\\MovimientoServicio.cs",
@@ -106,12 +106,11 @@
               "RelativeToolTip": "ec.edu.monster.controlador\\MovimientoServicio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:26:54.148Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:26:54.148Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "IMovimientoServicio.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\IMovimientoServicio.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.contracts\\IMovimientoServicio.cs",
@@ -119,12 +118,11 @@
               "RelativeToolTip": "ec.edu.monster.contracts\\IMovimientoServicio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:26:51.984Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:26:51.984Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "LoginServicio.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.controlador\\LoginServicio.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.controlador\\LoginServicio.cs",
@@ -132,12 +130,11 @@
               "RelativeToolTip": "ec.edu.monster.controlador\\LoginServicio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:25:25.6Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:25:25.6Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "ILoginServicio.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\ILoginServicio.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.contracts\\ILoginServicio.cs",
@@ -145,12 +142,11 @@
               "RelativeToolTip": "ec.edu.monster.contracts\\ILoginServicio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:25:24.003Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:25:24.003Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "CuentaServicio.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.controlador\\CuentaServicio.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.controlador\\CuentaServicio.cs",
@@ -158,12 +154,11 @@
               "RelativeToolTip": "ec.edu.monster.controlador\\CuentaServicio.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAYwBoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:23:51.262Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:23:51.262Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "ICuentaServicio.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.contracts\\ICuentaServicio.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.contracts\\ICuentaServicio.cs",
@@ -176,33 +171,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "App.config",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\App.config",
               "RelativeDocumentMoniker": "App.config",
               "ToolTip": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\App.config",
               "RelativeToolTip": "App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAIwFEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-11-01T22:16:04.259Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 5,
               "Title": "MovimientoService.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\MovimientoService.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.service\\MovimientoService.cs",
               "ToolTip": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\MovimientoService.cs",
               "RelativeToolTip": "ec.edu.monster.service\\MovimientoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-01T22:15:04.824Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "LoginService.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\LoginService.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.service\\LoginService.cs",
@@ -210,12 +205,11 @@
               "RelativeToolTip": "ec.edu.monster.service\\LoginService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:14:19.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:14:19.629Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "CuentaService.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.service\\CuentaService.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.service\\CuentaService.cs",
@@ -223,57 +217,56 @@
               "RelativeToolTip": "ec.edu.monster.service\\CuentaService.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAgwGsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:04:06.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:04:06.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "CuentaDAO.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.DAO\\CuentaDAO.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.DAO\\CuentaDAO.cs",
               "ToolTip": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.DAO\\CuentaDAO.cs",
               "RelativeToolTip": "ec.edu.monster.DAO\\CuentaDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAkwEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-01T21:59:22.447Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "MovimientoDAO.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.DAO\\MovimientoDAO.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.DAO\\MovimientoDAO.cs",
               "ToolTip": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.DAO\\MovimientoDAO.cs",
               "RelativeToolTip": "ec.edu.monster.DAO\\MovimientoDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAIwCsAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-01T22:00:40.633Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 2,
               "Title": "MovimientoModel.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.model\\MovimientoModel.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.model\\MovimientoModel.cs",
               "ToolTip": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.model\\MovimientoModel.cs",
               "RelativeToolTip": "ec.edu.monster.model\\MovimientoModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-01T21:57:10.113Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 3,
               "Title": "CuentaModel.cs",
               "DocumentMoniker": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.model\\CuentaModel.cs",
               "RelativeDocumentMoniker": "ec.edu.monster.model\\CuentaModel.cs",
               "ToolTip": "D:\\OCTAVO SEMESTRE\\ARQUITECTURA\\UNIDAD1-TALLERES-BDD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.model\\CuentaModel.cs",
               "RelativeToolTip": "ec.edu.monster.model\\CuentaModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-01T21:55:44.398Z",
               "EditorCaption": ""
