@@ -170,7 +170,7 @@ public class SoapHelper {
         String lastResp = null;
 
         for (String action : actions) {
-            RequestBody body = RequestBody.create(envelope, XML);
+            RequestBody body = RequestBody.create(XML, envelope);
             Request req = new Request.Builder()
                     .url(url) // ¡endpoint del servicio, NO ?wsdl!
                     .addHeader("Content-Type", "text/xml; charset=utf-8")
