@@ -17,6 +17,44 @@ public class MenuView extends javax.swing.JFrame {
      */
     public MenuView() {
         initComponents();
+        configurarEventos();
+    }
+    
+    private void configurarEventos() {
+        btnDeposito.addActionListener(evt -> {
+            DepositoView depositoView = new DepositoView();
+            depositoView.setVisible(true);
+        });
+        
+        btnRetiro.addActionListener(evt -> {
+            RetiroView retiroView = new RetiroView();
+            retiroView.setVisible(true);
+        });
+        
+        btnTransferencia.addActionListener(evt -> {
+            TransferenciaView transferenciaView = new TransferenciaView();
+            transferenciaView.setVisible(true);
+        });
+        
+        btnMovimientos.addActionListener(evt -> {
+            MovimientoView movimientoView = new MovimientoView();
+            movimientoView.setVisible(true);
+        });
+        
+        btnDatosCuenta.addActionListener(evt -> {
+            CuentaView cuentaView = new CuentaView();
+            cuentaView.setVisible(true);
+        });
+        
+        btnCerrarSesion.addActionListener(evt -> {
+            this.setVisible(false);
+            java.awt.EventQueue.invokeLater(() -> {
+                LoginView loginView = new LoginView();
+                loginView.setLocationRelativeTo(null);
+                loginView.setVisible(true);
+                this.dispose();
+            });
+        });
     }
 
     /**

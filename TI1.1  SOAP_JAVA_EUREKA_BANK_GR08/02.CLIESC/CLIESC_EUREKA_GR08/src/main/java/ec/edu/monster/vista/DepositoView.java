@@ -8,14 +8,14 @@ package ec.edu.monster.vista;
  *
  * @author JOHAN
  */
-public class CuentaView extends javax.swing.JFrame {
+public class DepositoView extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CuentaView.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DepositoView.class.getName());
 
     /**
-     * Creates new form CuentaView
+     * Creates new form DepositoView
      */
-    public CuentaView() {
+    public DepositoView() {
         initComponents();
     }
 
@@ -66,7 +66,7 @@ public class CuentaView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new CuentaView().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new DepositoView().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
