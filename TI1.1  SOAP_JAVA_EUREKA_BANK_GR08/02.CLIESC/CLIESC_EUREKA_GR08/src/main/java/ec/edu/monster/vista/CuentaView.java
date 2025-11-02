@@ -4,6 +4,10 @@
  */
 package ec.edu.monster.vista;
 
+import ec.edu.monster.service.CuentaService;
+import ec.edu.monster.ws.CuentaModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author JOHAN
@@ -11,12 +15,19 @@ package ec.edu.monster.vista;
 public class CuentaView extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CuentaView.class.getName());
+    private final CuentaService cuentaService = new CuentaService();
 
     /**
      * Creates new form CuentaView
      */
     public CuentaView() {
         initComponents();
+        // Agregar listener fuera de la sección generada para que no se elimine al modificar el diseño
+        btnBuscarCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCuentaActionPerformed(evt);
+            }
+        });
     }
 
     /**
@@ -77,39 +88,34 @@ public class CuentaView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMovimientosEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCuentaEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(lblSaldoEncontrado1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(26, 26, 26)
+                                .addComponent(lblMovimientosEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)))
+                .addComponent(lblCuentaEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(149, Short.MAX_VALUE)
-                    .addComponent(lblSaldoEncontrado1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(131, 131, 131)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCuentaEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCuentaEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel5))
-                    .addComponent(lblMovimientosEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(lblSaldoEncontrado1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblMovimientosEncontrado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(58, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(83, 83, 83)
-                    .addComponent(lblSaldoEncontrado1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(105, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,7 +131,7 @@ public class CuentaView extends javax.swing.JFrame {
                         .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
                         .addComponent(btnBuscarCuenta)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,6 +149,43 @@ public class CuentaView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCuentaActionPerformed
+        String numeroCuenta = txtNumeroCuenta.getText() != null ? txtNumeroCuenta.getText().trim() : "";
+        
+        if (numeroCuenta.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un número de cuenta.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        try {
+            CuentaModel cuentaModel = cuentaService.obtenerCuentaPorNumero(numeroCuenta);
+            
+            if (cuentaModel == null) {
+                lblCuentaEncontrada.setText("");
+                lblSaldoEncontrado1.setText("");
+                lblMovimientosEncontrado.setText("");
+                JOptionPane.showMessageDialog(this, "No se encontraron datos para la cuenta: " + numeroCuenta, "Información", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
+            // Establecer el número de cuenta encontrado
+            lblCuentaEncontrada.setText(numeroCuenta);
+            
+            // Establecer el saldo
+            lblSaldoEncontrado1.setText(String.format("%.2f", cuentaModel.getDecCuenSaldo()));
+            
+            // Establecer el número de movimientos (entero)
+            lblMovimientosEncontrado.setText(String.valueOf(cuentaModel.getIntCuenContMov()));
+            
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al obtener los datos de la cuenta", e);
+            JOptionPane.showMessageDialog(this, "Error al obtener los datos de la cuenta: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            lblCuentaEncontrada.setText("");
+            lblSaldoEncontrado1.setText("");
+            lblMovimientosEncontrado.setText("");
+        }
+    }//GEN-LAST:event_btnBuscarCuentaActionPerformed
 
     /**
      * @param args the command line arguments
