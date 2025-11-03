@@ -4,6 +4,10 @@
  */
 package ec.edu.monster.vista;
 
+import ec.edu.monster.service.CuentaService;
+import ec.edu.monster.ws.CuentaModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author JOHAN
@@ -11,12 +15,44 @@ package ec.edu.monster.vista;
 public class DepositoView extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DepositoView.class.getName());
+    private final CuentaService cuentaService = new CuentaService();
+    private CuentaModel cuentaActual = null;
+    private String numeroCuentaActual = null;
 
     /**
      * Creates new form DepositoView
      */
     public DepositoView() {
         initComponents();
+        // Agregar listener fuera de la sección generada para que no se elimine al modificar el diseño
+        btnBuscarCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCuentaActionPerformed(evt);
+            }
+        });
+        
+        btnDepositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepositarActionPerformed(evt);
+            }
+        });
+        
+        // Ocultar inicialmente los componentes de depósito
+        ocultarComponentesDeposito();
+    }
+    
+    private void ocultarComponentesDeposito() {
+        jPanel1.setVisible(false);
+        jLabel2.setVisible(false);
+        txtMonto.setVisible(false);
+        btnDepositar.setVisible(false);
+    }
+    
+    private void mostrarComponentesDeposito() {
+        jPanel1.setVisible(true);
+        jLabel2.setVisible(true);
+        txtMonto.setVisible(true);
+        btnDepositar.setVisible(true);
     }
 
     /**
@@ -28,21 +64,214 @@ public class DepositoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnBuscarCuenta = new javax.swing.JButton();
+        txtNumeroCuenta = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        lblCuentaEncontrada = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblSaldoEncontrado = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblMovimientosEncontrado = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtMonto = new javax.swing.JTextField();
+        btnDepositar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel1.setText("Ingrese el número de Cuenta");
+
+        btnBuscarCuenta.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnBuscarCuenta.setText("Buscar");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblCuentaEncontrada.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel3.setText("Cuenta: ");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel4.setText("Saldo");
+
+        lblSaldoEncontrado.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblSaldoEncontrado.setVisible(false);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel5.setText("Movimientos");
+        jLabel5.setVisible(false);
+
+        lblMovimientosEncontrado.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblMovimientosEncontrado.setVisible(false);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(lblCuentaEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCuentaEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel2.setText("Monto a depositar:");
+
+        txtMonto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        btnDepositar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnDepositar.setText("Depositar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(btnBuscarCuenta))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnDepositar)))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarCuenta))
+                .addGap(43, 43, 43)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDepositar))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCuentaActionPerformed
+        String numeroCuenta = txtNumeroCuenta.getText() != null ? txtNumeroCuenta.getText().trim() : "";
+        
+        if (numeroCuenta.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un número de cuenta.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            ocultarComponentesDeposito();
+            return;
+        }
+        
+        try {
+            CuentaModel cuentaModel = cuentaService.obtenerCuentaPorNumero(numeroCuenta);
+            
+            if (cuentaModel == null) {
+                lblCuentaEncontrada.setText("");
+                lblSaldoEncontrado.setText("");
+                lblMovimientosEncontrado.setText("");
+                ocultarComponentesDeposito();
+                JOptionPane.showMessageDialog(this, "No se encontraron datos para la cuenta: " + numeroCuenta, "Información", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
+            // Guardar la cuenta actual y el número de cuenta
+            cuentaActual = cuentaModel;
+            numeroCuentaActual = numeroCuenta;
+            
+            // Establecer el número de cuenta encontrado
+            lblCuentaEncontrada.setText(numeroCuenta);
+            
+            // Limpiar los campos de saldo y movimientos (no se muestran)
+            lblSaldoEncontrado.setText("");
+            lblMovimientosEncontrado.setText("");
+            
+            // Limpiar el campo de monto y mostrar los componentes de depósito
+            txtMonto.setText("");
+            mostrarComponentesDeposito();
+            
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al obtener los datos de la cuenta", e);
+            JOptionPane.showMessageDialog(this, "Error al obtener los datos de la cuenta: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            lblCuentaEncontrada.setText("");
+            lblSaldoEncontrado.setText("");
+            lblMovimientosEncontrado.setText("");
+            ocultarComponentesDeposito();
+            cuentaActual = null;
+            numeroCuentaActual = null;
+        }
+    }//GEN-LAST:event_btnBuscarCuentaActionPerformed
+
+    private void btnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarActionPerformed
+        if (cuentaActual == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, busque una cuenta primero.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String montoStr = txtMonto.getText() != null ? txtMonto.getText().trim() : "";
+        
+        if (montoStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un monto a depositar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        try {
+            double monto = Double.parseDouble(montoStr);
+            
+            if (monto <= 0) {
+                JOptionPane.showMessageDialog(this, "El monto debe ser mayor a cero.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
+            // Realizar el depósito con tipo "DEP" y cd null usando el número de cuenta
+            boolean exito = cuentaService.realizarDeposito(numeroCuentaActual, montoStr, "DEP", null);
+            
+            if (exito) {
+                JOptionPane.showMessageDialog(this, "Depósito realizado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                
+                // Actualizar los datos de la cuenta (solo se actualiza internamente, no se muestran)
+                CuentaModel cuentaActualizada = cuentaService.obtenerCuentaPorNumero(numeroCuentaActual);
+                if (cuentaActualizada != null) {
+                    cuentaActual = cuentaActualizada;
+                }
+                
+                // Limpiar el campo de monto
+                txtMonto.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al realizar el depósito.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un monto válido (número).", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al realizar el depósito", e);
+            JOptionPane.showMessageDialog(this, "Error al realizar el depósito: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDepositarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +299,18 @@ public class DepositoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarCuenta;
+    private javax.swing.JButton btnDepositar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCuentaEncontrada;
+    private javax.swing.JLabel lblMovimientosEncontrado;
+    private javax.swing.JLabel lblSaldoEncontrado;
+    private javax.swing.JTextField txtMonto;
+    private javax.swing.JTextField txtNumeroCuenta;
     // End of variables declaration//GEN-END:variables
 }
