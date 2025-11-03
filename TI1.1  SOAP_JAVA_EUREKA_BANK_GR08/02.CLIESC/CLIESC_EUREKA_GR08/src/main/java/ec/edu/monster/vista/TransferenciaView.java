@@ -4,6 +4,10 @@
  */
 package ec.edu.monster.vista;
 
+import ec.edu.monster.service.CuentaService;
+import ec.edu.monster.ws.CuentaModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author JOHAN
@@ -11,12 +15,61 @@ package ec.edu.monster.vista;
 public class TransferenciaView extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TransferenciaView.class.getName());
+    private final CuentaService cuentaService = new CuentaService();
+    private CuentaModel cuentaOrigen = null;
+    private CuentaModel cuentaDestino = null;
+    private String numeroCuentaOrigen = null;
+    private String numeroCuentaDestino = null;
 
     /**
      * Creates new form TransferenciaView
      */
     public TransferenciaView() {
         initComponents();
+        // Agregar listeners fuera de la sección generada para que no se elimine al modificar el diseño
+        btnBuscarOrigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarOrigenActionPerformed(evt);
+            }
+        });
+        
+        btnBuscarDestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDestinoActionPerformed(evt);
+            }
+        });
+        
+        btnTransferir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTransferirActionPerformed(evt);
+            }
+        });
+        
+        // Ocultar inicialmente los componentes de transferencia
+        ocultarComponentesTransferencia();
+    }
+    
+    private void ocultarComponentesTransferencia() {
+        jPanel1.setVisible(false);
+        jPanel2.setVisible(false);
+        jLabel5.setVisible(false);
+        txtMonto.setVisible(false);
+        btnTransferir.setVisible(false);
+    }
+    
+    private void mostrarComponentesTransferencia() {
+        jPanel1.setVisible(true);
+        jPanel2.setVisible(true);
+        jLabel5.setVisible(true);
+        txtMonto.setVisible(true);
+        btnTransferir.setVisible(true);
+    }
+    
+    private void verificarComponentesTransferencia() {
+        // Solo mostrar si ambas cuentas están encontradas
+        if (cuentaOrigen != null && cuentaDestino != null) {
+            mostrarComponentesTransferencia();
+        }
     }
 
     /**
@@ -28,21 +81,354 @@ public class TransferenciaView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txtCuentaOrigen = new javax.swing.JTextField();
+        btnBuscarOrigen = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        lblCuentaOrigenEncontrada = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblSaldoOrigen = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCuentaDestino = new javax.swing.JTextField();
+        btnBuscarDestino = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        lblCuentaDestinoEncontrada = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtMonto = new javax.swing.JTextField();
+        btnTransferir = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel1.setText("Cuenta Origen:");
+
+        btnBuscarOrigen.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnBuscarOrigen.setText("Buscar");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel3.setText("Cuenta: ");
+
+        lblCuentaOrigenEncontrada.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel4.setText("Saldo disponible:");
+
+        lblSaldoOrigen.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCuentaOrigenEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSaldoOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(194, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCuentaOrigenEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(lblSaldoOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel2.setText("Cuenta Destino:");
+
+        btnBuscarDestino.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnBuscarDestino.setText("Buscar");
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel6.setText("Cuenta: ");
+
+        lblCuentaDestinoEncontrada.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(lblCuentaDestinoEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(229, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCuentaDestinoEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel5.setText("Monto a transferir:");
+
+        txtMonto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        btnTransferir.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnTransferir.setText("Transferir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCuentaOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarOrigen))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCuentaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarDestino))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnTransferir)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCuentaOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarOrigen))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCuentaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarDestino))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTransferir))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarOrigenActionPerformed
+        String numeroCuenta = txtCuentaOrigen.getText() != null ? txtCuentaOrigen.getText().trim() : "";
+        
+        if (numeroCuenta.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un número de cuenta origen.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            ocultarComponentesTransferencia();
+            return;
+        }
+        
+        try {
+            CuentaModel cuentaModel = cuentaService.obtenerCuentaPorNumero(numeroCuenta);
+            
+            if (cuentaModel == null) {
+                lblCuentaOrigenEncontrada.setText("");
+                lblSaldoOrigen.setText("");
+                ocultarComponentesTransferencia();
+                JOptionPane.showMessageDialog(this, "No se encontraron datos para la cuenta origen: " + numeroCuenta, "Información", JOptionPane.INFORMATION_MESSAGE);
+                cuentaOrigen = null;
+                numeroCuentaOrigen = null;
+                return;
+            }
+            
+            // Validar que no sea la misma cuenta que destino
+            if (numeroCuentaDestino != null && numeroCuenta.equals(numeroCuentaDestino)) {
+                JOptionPane.showMessageDialog(this, "La cuenta origen no puede ser la misma que la cuenta destino.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Guardar la cuenta origen
+            cuentaOrigen = cuentaModel;
+            numeroCuentaOrigen = numeroCuenta;
+            
+            // Establecer los datos de la cuenta origen
+            lblCuentaOrigenEncontrada.setText(numeroCuenta);
+            lblSaldoOrigen.setText(String.format("%.2f", cuentaModel.getDecCuenSaldo()));
+            
+            // Verificar si ya se puede mostrar el formulario completo
+            verificarComponentesTransferencia();
+            
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al obtener los datos de la cuenta origen", e);
+            JOptionPane.showMessageDialog(this, "Error al obtener los datos de la cuenta origen: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            lblCuentaOrigenEncontrada.setText("");
+            lblSaldoOrigen.setText("");
+            cuentaOrigen = null;
+            numeroCuentaOrigen = null;
+            ocultarComponentesTransferencia();
+        }
+    }//GEN-LAST:event_btnBuscarOrigenActionPerformed
+
+    private void btnBuscarDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDestinoActionPerformed
+        String numeroCuenta = txtCuentaDestino.getText() != null ? txtCuentaDestino.getText().trim() : "";
+        
+        if (numeroCuenta.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un número de cuenta destino.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            ocultarComponentesTransferencia();
+            return;
+        }
+        
+        try {
+            CuentaModel cuentaModel = cuentaService.obtenerCuentaPorNumero(numeroCuenta);
+            
+            if (cuentaModel == null) {
+                lblCuentaDestinoEncontrada.setText("");
+                ocultarComponentesTransferencia();
+                JOptionPane.showMessageDialog(this, "No se encontraron datos para la cuenta destino: " + numeroCuenta, "Información", JOptionPane.INFORMATION_MESSAGE);
+                cuentaDestino = null;
+                numeroCuentaDestino = null;
+                return;
+            }
+            
+            // Validar que no sea la misma cuenta que origen
+            if (numeroCuentaOrigen != null && numeroCuenta.equals(numeroCuentaOrigen)) {
+                JOptionPane.showMessageDialog(this, "La cuenta destino no puede ser la misma que la cuenta origen.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Guardar la cuenta destino
+            cuentaDestino = cuentaModel;
+            numeroCuentaDestino = numeroCuenta;
+            
+            // Establecer los datos de la cuenta destino
+            lblCuentaDestinoEncontrada.setText(numeroCuenta);
+            
+            // Verificar si ya se puede mostrar el formulario completo
+            verificarComponentesTransferencia();
+            
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al obtener los datos de la cuenta destino", e);
+            JOptionPane.showMessageDialog(this, "Error al obtener los datos de la cuenta destino: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            lblCuentaDestinoEncontrada.setText("");
+            cuentaDestino = null;
+            numeroCuentaDestino = null;
+            ocultarComponentesTransferencia();
+        }
+    }//GEN-LAST:event_btnBuscarDestinoActionPerformed
+
+    private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
+        // Validar que ambas cuentas estén encontradas
+        if (cuentaOrigen == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, busque la cuenta origen primero.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (cuentaDestino == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, busque la cuenta destino primero.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String montoStr = txtMonto.getText() != null ? txtMonto.getText().trim() : "";
+        
+        if (montoStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un monto a transferir.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        try {
+            double monto = Double.parseDouble(montoStr);
+            
+            if (monto <= 0) {
+                JOptionPane.showMessageDialog(this, "El monto debe ser mayor a cero.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
+            // Actualizar el saldo de la cuenta origen antes de validar
+            CuentaModel cuentaOrigenActualizada = cuentaService.obtenerCuentaPorNumero(numeroCuentaOrigen);
+            if (cuentaOrigenActualizada == null) {
+                JOptionPane.showMessageDialog(this, "No se pudo obtener la información actualizada de la cuenta origen.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            cuentaOrigen = cuentaOrigenActualizada;
+            // Actualizar el saldo mostrado
+            lblSaldoOrigen.setText(String.format("%.2f", cuentaOrigenActualizada.getDecCuenSaldo()));
+            
+            // Verificar que el saldo de la cuenta origen sea suficiente
+            double saldoOrigen = cuentaOrigen.getDecCuenSaldo();
+            if (saldoOrigen < monto) {
+                JOptionPane.showMessageDialog(this, 
+                    "Saldo insuficiente en cuenta origen.\nSaldo disponible: " + String.format("%.2f", saldoOrigen) + 
+                    "\nMonto solicitado: " + String.format("%.2f", monto), 
+                    "Error - Fondos Insuficientes", 
+                    JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Validar que las cuentas no sean la misma
+            if (numeroCuentaOrigen.equals(numeroCuentaDestino)) {
+                JOptionPane.showMessageDialog(this, "La cuenta origen y destino no pueden ser la misma.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Realizar la transferencia: se hace un depósito en destino con tipo "TRA" y cd (cuenta destino) = cuenta origen
+            // Pero según el código del servidor, el parámetro cd es la cuenta destino cuando se usa tipo TRA
+            // Revisando el código del controlador: realizarTransferencia hace un retiro del origen y luego un depósito en destino con tipo "TRA"
+            // Pero el método cuenta() del servicio espera: cuenta (origen), monto, tipo ("TRA"), cd (destino)
+            boolean exito = cuentaService.realizarDeposito(numeroCuentaOrigen, montoStr, "TRA", numeroCuentaDestino);
+            
+            if (exito) {
+                JOptionPane.showMessageDialog(this, "Transferencia realizada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                
+                // Actualizar los datos de ambas cuentas después de la transferencia
+                CuentaModel cuentaOrigenActualizadaDespues = cuentaService.obtenerCuentaPorNumero(numeroCuentaOrigen);
+                if (cuentaOrigenActualizadaDespues != null) {
+                    cuentaOrigen = cuentaOrigenActualizadaDespues;
+                    lblSaldoOrigen.setText(String.format("%.2f", cuentaOrigenActualizadaDespues.getDecCuenSaldo()));
+                }
+                
+                // Limpiar el campo de monto
+                txtMonto.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al realizar la transferencia. Verifique que tenga fondos suficientes.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un monto válido (número).", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al realizar la transferencia", e);
+            JOptionPane.showMessageDialog(this, "Error al realizar la transferencia: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnTransferirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +456,22 @@ public class TransferenciaView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarDestino;
+    private javax.swing.JButton btnBuscarOrigen;
+    private javax.swing.JButton btnTransferir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblCuentaDestinoEncontrada;
+    private javax.swing.JLabel lblCuentaOrigenEncontrada;
+    private javax.swing.JLabel lblSaldoOrigen;
+    private javax.swing.JTextField txtCuentaDestino;
+    private javax.swing.JTextField txtCuentaOrigen;
+    private javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables
 }
