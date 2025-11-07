@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\espe\\octavo semestre\\bdd ar\\arquitecturaparcial1bbd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|d:\\espe\\octavo semestre\\bdd ar\\arquitecturaparcial1bbd\\t2.1 soap_dotnet_eureka_bank_gr08\\01.servidor\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_soap_dotnet\\ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13A5997A-3D7D-406C-BD97-E1A2546A546B}|ws_eureka_bank_soap_dotnet.csproj|solutionrelative:ec.edu.monster.dao\\movimientodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -167,8 +167,7 @@
               "RelativeToolTip": "ec.edu.monster.DAO\\MovimientoDAO.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAIwCQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:00:40.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:00:40.633Z"
             },
             {
               "$type": "Document",
