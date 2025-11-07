@@ -1,9 +1,0 @@
-ec\edu\monster\Controlador\CuentaDAO.class
-ec\edu\monster\ws_eureka_bank_soap_java\JakartaRestConfiguration.class
-ec\edu\monster\servicio\LoginService.class
-ec\edu\monster\ws\WSLogin.class
-ec\edu\monster\modelo\CuentaModel.class
-ec\edu\monster\pruebas\Prueba01_Conexion.class
-ec\edu\monster\db\AccesoBD.class
-ec\edu\monster_eureka_bank_soap_java\resources\JakartaEE10Resource.class
-ec\edu\monster\servicio\CuentaService.class
