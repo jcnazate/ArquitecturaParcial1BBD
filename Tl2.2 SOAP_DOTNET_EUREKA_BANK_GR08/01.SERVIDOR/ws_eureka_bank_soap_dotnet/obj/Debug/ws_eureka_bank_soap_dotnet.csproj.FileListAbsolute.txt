@@ -12,3 +12,10 @@ D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\T2.1 SOAP_DOTNET_EUREKA_B
 D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\obj\Debug\ws_eureka_bank_soap_dotnet.csproj.CoreCompileInputs.cache
 D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\obj\Debug\ws_eureka_bank_soap_dotnet.dll
 D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\T2.1 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\obj\Debug\ws_eureka_bank_soap_dotnet.pdb
+D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\Tl2.2 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\bin\Debug\ws_eureka_bank_soap_dotnet.dll.config
+D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\Tl2.2 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\bin\Debug\ws_eureka_bank_soap_dotnet.dll
+D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\Tl2.2 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\bin\Debug\ws_eureka_bank_soap_dotnet.pdb
+D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\Tl2.2 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\obj\Debug\ws_eureka_bank_soap_dotnet.csproj.AssemblyReference.cache
+D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\Tl2.2 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\obj\Debug\ws_eureka_bank_soap_dotnet.csproj.CoreCompileInputs.cache
+D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\Tl2.2 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\obj\Debug\ws_eureka_bank_soap_dotnet.dll
+D:\Espe\Octavo Semestre\BDD AR\ArquitecturaParcial1BBD\Tl2.2 SOAP_DOTNET_EUREKA_BANK_GR08\01.SERVIDOR\ws_eureka_bank_soap_dotnet\obj\Debug\ws_eureka_bank_soap_dotnet.pdb
