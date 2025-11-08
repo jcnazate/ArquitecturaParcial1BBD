@@ -7,6 +7,9 @@ package ec.edu.monster.vista;
 import ec.edu.monster.service.CuentaService;
 import ec.edu.monster.ws.CuentaModel;
 import javax.swing.JOptionPane;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -20,12 +23,15 @@ public class TransferenciaView extends javax.swing.JFrame {
     private CuentaModel cuentaDestino = null;
     private String numeroCuentaOrigen = null;
     private String numeroCuentaDestino = null;
+    private Color colorFondo = new Color(118, 75, 162); // #764ba2
+    private Color colorGradiente2 = new Color(118, 75, 162); // #764ba2
 
     /**
      * Creates new form TransferenciaView
      */
     public TransferenciaView() {
         initComponents();
+        aplicarEstiloModerno();
         // Agregar listeners fuera de la sección generada para que no se elimine al modificar el diseño
         btnBuscarOrigen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,6 +53,70 @@ public class TransferenciaView extends javax.swing.JFrame {
         
         // Ocultar inicialmente los componentes de transferencia
         ocultarComponentesTransferencia();
+    }
+    
+    private void aplicarEstiloModerno() {
+        // Configurar el fondo del frame
+        getContentPane().setBackground(colorFondo);
+        setBackground(colorFondo);
+        
+        // Estilo de labels
+        jLabel1.setForeground(Color.WHITE);
+        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        jLabel2.setForeground(Color.WHITE);
+        jLabel2.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        jLabel5.setForeground(Color.WHITE);
+        jLabel5.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        
+        // Estilo de campos de texto
+        estiloTextField(txtCuentaOrigen);
+        estiloTextField(txtCuentaDestino);
+        estiloTextField(txtMonto);
+        
+        // Estilo de botones
+        estiloBoton(btnBuscarOrigen);
+        estiloBoton(btnBuscarDestino);
+        estiloBoton(btnTransferir);
+        
+        // Estilo de los paneles de información
+        jPanel1.setBackground(Color.WHITE);
+        jPanel1.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(224, 224, 224), 1),
+            BorderFactory.createEmptyBorder(20, 20, 20, 20)
+        ));
+        
+        jPanel2.setBackground(Color.WHITE);
+        jPanel2.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(224, 224, 224), 1),
+            BorderFactory.createEmptyBorder(20, 20, 20, 20)
+        ));
+        
+        jLabel3.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        jLabel4.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        jLabel6.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        lblCuentaOrigenEncontrada.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblSaldoOrigen.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblCuentaDestinoEncontrada.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+    }
+    
+    private void estiloTextField(javax.swing.JTextField txt) {
+        txt.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(224, 224, 224), 2),
+            BorderFactory.createEmptyBorder(12, 20, 12, 20)
+        ));
+        txt.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        txt.setBackground(Color.WHITE);
+        txt.setOpaque(true);
+    }
+    
+    private void estiloBoton(javax.swing.JButton btn) {
+        btn.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        btn.setForeground(Color.WHITE);
+        btn.setBackground(colorGradiente2);
+        btn.setBorderPainted(false);
+        btn.setFocusPainted(false);
+        btn.setOpaque(true);
+        btn.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
     }
     
     private void ocultarComponentesTransferencia() {

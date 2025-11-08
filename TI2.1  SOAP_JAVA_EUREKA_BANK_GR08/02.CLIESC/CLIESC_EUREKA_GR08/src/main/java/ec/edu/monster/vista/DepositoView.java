@@ -7,6 +7,9 @@ package ec.edu.monster.vista;
 import ec.edu.monster.service.CuentaService;
 import ec.edu.monster.ws.CuentaModel;
 import javax.swing.JOptionPane;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -18,12 +21,15 @@ public class DepositoView extends javax.swing.JFrame {
     private final CuentaService cuentaService = new CuentaService();
     private CuentaModel cuentaActual = null;
     private String numeroCuentaActual = null;
+    private Color colorFondo = new Color(118, 75, 162); // #764ba2
+    private Color colorGradiente2 = new Color(118, 75, 162); // #764ba2
 
     /**
      * Creates new form DepositoView
      */
     public DepositoView() {
         initComponents();
+        aplicarEstiloModerno();
         // Agregar listener fuera de la sección generada para que no se elimine al modificar el diseño
         btnBuscarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -39,6 +45,63 @@ public class DepositoView extends javax.swing.JFrame {
         
         // Ocultar inicialmente los componentes de depósito
         ocultarComponentesDeposito();
+    }
+    
+    private void aplicarEstiloModerno() {
+        // Configurar el fondo del frame
+        getContentPane().setBackground(colorFondo);
+        setBackground(colorFondo);
+        
+        // Estilo del título
+        jLabel6.setForeground(Color.WHITE);
+        jLabel6.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        
+        // Estilo de labels
+        jLabel1.setForeground(Color.WHITE);
+        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        jLabel2.setForeground(Color.WHITE);
+        jLabel2.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        
+        // Estilo de campos de texto
+        txtNumeroCuenta.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(224, 224, 224), 2),
+            BorderFactory.createEmptyBorder(12, 20, 12, 20)
+        ));
+        txtNumeroCuenta.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        txtNumeroCuenta.setBackground(Color.WHITE);
+        txtNumeroCuenta.setOpaque(true);
+        
+        txtMonto.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(224, 224, 224), 2),
+            BorderFactory.createEmptyBorder(12, 20, 12, 20)
+        ));
+        txtMonto.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        txtMonto.setBackground(Color.WHITE);
+        txtMonto.setOpaque(true);
+        
+        // Estilo de botones
+        estiloBoton(btnBuscarCuenta);
+        estiloBoton(btnDepositar);
+        
+        // Estilo del panel de información
+        jPanel1.setBackground(Color.WHITE);
+        jPanel1.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(224, 224, 224), 1),
+            BorderFactory.createEmptyBorder(20, 20, 20, 20)
+        ));
+        
+        jLabel3.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        lblCuentaEncontrada.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+    }
+    
+    private void estiloBoton(javax.swing.JButton btn) {
+        btn.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        btn.setForeground(Color.WHITE);
+        btn.setBackground(colorGradiente2);
+        btn.setBorderPainted(false);
+        btn.setFocusPainted(false);
+        btn.setOpaque(true);
+        btn.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
     }
     
     private void ocultarComponentesDeposito() {

@@ -12,6 +12,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -29,12 +32,15 @@ public class MovimientoView extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalEgresos;
     private javax.swing.JLabel lblSaldoNeto;
     private javax.swing.JLabel lblSaldoActual;
+    private Color colorFondo = new Color(118, 75, 162); // #764ba2
+    private Color colorGradiente2 = new Color(118, 75, 162); // #764ba2
 
     /**
      * Creates new form MovimientoView
      */
     public MovimientoView() {
         initComponents();
+        aplicarEstiloModerno();
         crearTablaMovimientos();
         crearPanelResumen();
         // Agregar listener fuera de la sección generada para que no se elimine al modificar el diseño
@@ -43,6 +49,38 @@ public class MovimientoView extends javax.swing.JFrame {
                 btnBuscarCuentaActionPerformed(evt);
             }
         });
+    }
+    
+    private void aplicarEstiloModerno() {
+        // Configurar el fondo del frame
+        getContentPane().setBackground(colorFondo);
+        setBackground(colorFondo);
+        
+        // Estilo del título
+        jLabel6.setForeground(Color.WHITE);
+        jLabel6.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        
+        // Estilo de labels
+        jLabel1.setForeground(Color.WHITE);
+        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        
+        // Estilo de campo de texto
+        txtNumeroCuenta.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(224, 224, 224), 2),
+            BorderFactory.createEmptyBorder(12, 20, 12, 20)
+        ));
+        txtNumeroCuenta.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        txtNumeroCuenta.setBackground(Color.WHITE);
+        txtNumeroCuenta.setOpaque(true);
+        
+        // Estilo del botón
+        btnBuscarCuenta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        btnBuscarCuenta.setForeground(Color.WHITE);
+        btnBuscarCuenta.setBackground(colorGradiente2);
+        btnBuscarCuenta.setBorderPainted(false);
+        btnBuscarCuenta.setFocusPainted(false);
+        btnBuscarCuenta.setOpaque(true);
+        btnBuscarCuenta.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
     }
     
     private void crearTablaMovimientos() {
@@ -70,10 +108,23 @@ public class MovimientoView extends javax.swing.JFrame {
         tblMovimientos.getColumnModel().getColumn(5).setPreferredWidth(100); // Cta Ref.
         tblMovimientos.getColumnModel().getColumn(6).setPreferredWidth(100);  // Saldo
         
-        // Crear scroll pane
+        // Crear scroll pane con estilo moderno
         scrollPane = new JScrollPane(tblMovimientos);
-        scrollPane.setBorder(javax.swing.BorderFactory.createTitledBorder("Movimientos de la Cuenta"));
+        scrollPane.setBackground(Color.WHITE);
+        scrollPane.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(224, 224, 224), 1),
+            BorderFactory.createEmptyBorder(10, 10, 10, 10)
+        ));
         scrollPane.setPreferredSize(new java.awt.Dimension(650, 280));
+        scrollPane.setOpaque(true);
+        
+        // Estilo de la tabla
+        tblMovimientos.setBackground(Color.WHITE);
+        tblMovimientos.setForeground(new Color(51, 51, 51));
+        tblMovimientos.setGridColor(new Color(224, 224, 224));
+        tblMovimientos.getTableHeader().setBackground(new Color(248, 249, 250));
+        tblMovimientos.getTableHeader().setForeground(new Color(51, 51, 51));
+        tblMovimientos.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         
         // Agregar el componente al content pane si no está ya
         if (!java.util.Arrays.asList(getContentPane().getComponents()).contains(scrollPane)) {
@@ -82,31 +133,43 @@ public class MovimientoView extends javax.swing.JFrame {
     }
     
     private void crearPanelResumen() {
-        // Crear panel de resumen
+        // Crear panel de resumen con estilo moderno
         panelResumen = new javax.swing.JPanel();
-        panelResumen.setBorder(javax.swing.BorderFactory.createTitledBorder("RESUMEN"));
+        panelResumen.setBackground(Color.WHITE);
+        panelResumen.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(224, 224, 224), 1),
+            BorderFactory.createEmptyBorder(20, 20, 20, 20)
+        ));
         panelResumen.setLayout(new java.awt.GridLayout(4, 2, 10, 10));
         
-        // Crear labels
+        // Crear labels con estilo moderno
         javax.swing.JLabel lblLabelIngresos = new javax.swing.JLabel("Total Ingresos:");
-        lblLabelIngresos.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+        lblLabelIngresos.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        lblLabelIngresos.setForeground(new Color(51, 51, 51));
         lblTotalIngresos = new javax.swing.JLabel("0.00");
-        lblTotalIngresos.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        lblTotalIngresos.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblTotalIngresos.setForeground(new Color(17, 153, 142)); // Color verde
         
         javax.swing.JLabel lblLabelEgresos = new javax.swing.JLabel("Total Egresos (Retiros):");
-        lblLabelEgresos.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+        lblLabelEgresos.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        lblLabelEgresos.setForeground(new Color(51, 51, 51));
         lblTotalEgresos = new javax.swing.JLabel("0.00");
-        lblTotalEgresos.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        lblTotalEgresos.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblTotalEgresos.setForeground(new Color(245, 87, 108)); // Color rojo
         
         javax.swing.JLabel lblLabelNeto = new javax.swing.JLabel("Saldo Neto:");
-        lblLabelNeto.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+        lblLabelNeto.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        lblLabelNeto.setForeground(new Color(51, 51, 51));
         lblSaldoNeto = new javax.swing.JLabel("0.00");
-        lblSaldoNeto.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        lblSaldoNeto.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblSaldoNeto.setForeground(new Color(51, 51, 51));
         
         javax.swing.JLabel lblLabelActual = new javax.swing.JLabel("Saldo Actual de la Cuenta:");
-        lblLabelActual.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+        lblLabelActual.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        lblLabelActual.setForeground(new Color(51, 51, 51));
         lblSaldoActual = new javax.swing.JLabel("0.00");
-        lblSaldoActual.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        lblSaldoActual.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        lblSaldoActual.setForeground(colorGradiente2); // Color púrpura
         
         // Agregar labels al panel
         panelResumen.add(lblLabelIngresos);
