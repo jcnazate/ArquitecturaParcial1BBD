@@ -42,8 +42,13 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'login.html'));
 });
 
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'home.html'));
+});
+
 app.get('/welcome', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'welcome.html'));
+    // Redirigir a home para mantener compatibilidad
+    res.redirect('/home');
 });
 
 app.post('/login', async (req, res) => {
@@ -56,12 +61,37 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.get('/logout', (req, res) => {
+    res.redirect('/login');
+});
+
+app.get('/cuenta', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'cuenta.html'));
+});
+
+app.get('/deposito', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'deposito.html'));
+});
+
+app.get('/retiro', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'retiro.html'));
+});
+
+app.get('/transferencia', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'transferencia.html'));
+});
+
+app.get('/movimiento', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'movimiento.html'));
+});
+
+// Rutas legacy para mantener compatibilidad
 app.get('/account', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'account.html'));
+    res.redirect('/cuenta');
 });
 
 app.get('/movements', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'movements.html'));
+    res.redirect('/movimiento');
 });
 
 app.post('/deposit', async (req, res) => {

@@ -11,6 +11,10 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
+    // Limpiar mensajes anteriores
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.style.display = 'none';
+
     try {
         const response = await fetch('/login', {
             method: 'POST',
@@ -21,13 +25,16 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         const result = await response.json();
 
         if (result.success) {
-            window.location.href = '/welcome';
+            // Guardar username en sessionStorage
+            sessionStorage.setItem('username', username);
+            window.location.href = '/home';
         } else {
-            showModal('Login Fallido', 'Por favor, intente de nuevo.');
+            errorMessage.style.display = 'block';
+            document.getElementById('error-text').textContent = 'Por favor, intente de nuevo.';
         }
     } catch (error) {
         console.error('Login error:', error);
-        showModal('Error', 'Ocurrió un error durante el login. Por favor, revise la conexión.');
+        errorMessage.style.display = 'block';
+        document.getElementById('error-text').textContent = 'Ocurrió un error durante el login. Por favor, revise la conexión.';
     }
 });
-
