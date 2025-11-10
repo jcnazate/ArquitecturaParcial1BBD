@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MovimientosActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/fondo_opciones" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/overlay_blanco_60" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/sea_green"
-            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/primary"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <LinearLayout
@@ -43,7 +33,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="📊 Movimientos"
+                    android:text="📋 Movimientos"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -56,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             app:cardBackgroundColor="@color/card_background"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <LinearLayout
@@ -71,8 +61,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Número de Cuenta"
-                    app:hintTextColor="@color/primary"
-                    app:boxStrokeColor="@color/primary">
+                    app:hintTextColor="@color/input_focus"
+                    app:boxStrokeColor="@color/input_focus"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etCuenta"
@@ -108,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             app:cardBackgroundColor="@color/primary"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <LinearLayout
@@ -128,8 +119,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Saldo Actual"
-                        android:textColor="@color/mint"
-                        android:textSize="12sp" />
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:alpha="0.9" />
 
                     <TextView
                         android:id="@+id/tvSaldoActual"
@@ -146,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:background="@color/dark_green"
+                    android:background="@color/primary_dark"
                     android:padding="12dp">
 
                     <LinearLayout
@@ -159,8 +151,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Total Ingresos"
-                            android:textColor="@color/light_green"
-                            android:textSize="10sp" />
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:alpha="0.9" />
 
                         <TextView
                             android:id="@+id/tvTotalIngresos"
@@ -182,8 +175,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Total Egresos"
-                            android:textColor="@color/light_green"
-                            android:textSize="10sp" />
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:alpha="0.9" />
 
                         <TextView
                             android:id="@+id/tvTotalEgresos"
@@ -205,8 +199,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Saldo Neto"
-                            android:textColor="@color/light_green"
-                            android:textSize="10sp" />
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:alpha="0.9" />
 
                         <TextView
                             android:id="@+id/tvSaldoNeto"
