@@ -1,7 +1,7 @@
-package ec.edu.monster.vista;
+package ec.edu.monster.view;
 
+import ec.edu.monster.model.CuentaModel;
 import ec.edu.monster.service.CuentaService;
-import ec.edu.monster.ws.CuentaModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -205,6 +205,9 @@ public class TransferenciaView extends JFrame {
 
         btnVolverMenu.addActionListener(e -> {
             dispose();
+            MenuView menu = new MenuView();
+            menu.setLocationRelativeTo(null);
+            menu.setVisible(true);
         });
 
         setContentPane(panelBackground);
@@ -223,12 +226,12 @@ public class TransferenciaView extends JFrame {
             mostrarError("Complete cuenta origen, cuenta destino y monto.");
             return;
         }
-        
+
         if (origen.equals(destino)) {
             mostrarError("La cuenta origen y destino no pueden ser la misma.");
             return;
         }
-        
+
         double monto;
         try {
             monto = Double.parseDouble(montoStr);
@@ -236,12 +239,12 @@ public class TransferenciaView extends JFrame {
             mostrarError("El monto debe ser un número válido.");
             return;
         }
-        
+
         if (monto <= 0) {
             mostrarError("El monto debe ser mayor a cero.");
             return;
         }
-        
+
         try {
             // Validar cuentas
             CuentaModel cOrigen = cuentaService.obtenerCuentaPorNumero(origen);
@@ -249,30 +252,30 @@ public class TransferenciaView extends JFrame {
                 mostrarError("No se encontró la cuenta origen: " + origen);
                 return;
             }
-            
+
             CuentaModel cDestino = cuentaService.obtenerCuentaPorNumero(destino);
             if (cDestino == null) {
                 mostrarError("No se encontró la cuenta destino: " + destino);
                 return;
             }
-            
+
             // Validar saldo origen
             if (cOrigen.getDecCuenSaldo() < monto) {
                 mostrarError("Saldo insuficiente en cuenta origen. Disponible: $ "
                         + String.format("%.2f", cOrigen.getDecCuenSaldo()));
                 return;
             }
-            
-            // Llamar a tu servicio de transferencia
+
+            // Llamar a tu servicio de transferencia (NO depósito TRA)
             boolean exito = cuentaService.realizarTransferencia(origen, destino, montoStr);
-            
+
             if (exito) {
                 mostrarExito("Transferencia realizada con éxito.");
                 txtMonto.setText("");
             } else {
                 mostrarError("Error al realizar la transferencia. Verifique los datos o el saldo.");
             }
-            
+
         } catch (Exception e) {
             logger.log(java.util.logging.Level.SEVERE, "Error al realizar la transferencia", e);
             mostrarError("Error al realizar la transferencia: " + e.getMessage());

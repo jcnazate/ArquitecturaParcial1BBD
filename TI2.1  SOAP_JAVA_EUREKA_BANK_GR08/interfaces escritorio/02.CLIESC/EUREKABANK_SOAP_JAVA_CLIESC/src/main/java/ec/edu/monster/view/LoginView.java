@@ -1,6 +1,6 @@
-package ec.edu.monster.vista;
+package ec.edu.monster.view;
 
-import ec.edu.monster.controlador.MainController;
+import ec.edu.monster.controller.LoginController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,9 +18,6 @@ public class LoginView extends JFrame {
     private JLabel jLabelUserText;
     private JLabel jLabelPassText;
     private JLabel jLabelSully;
-    
-    private final MainController mainController = new MainController();
-    private String usuarioActual;
 
     public LoginView() {
         initComponents();
@@ -164,33 +161,18 @@ public class LoginView extends JFrame {
         messageLabel.setBounds(40, y, 390, 20);
         panelCard.add(messageLabel);
 
-        // Acción del botón con MainController (misma lógica)
+        // Acción del botón con tu LoginController (misma lógica)
         btnLogin.addActionListener(e -> {
             String username = lblUsername.getText();
             String passwordString = new String(lblPassword.getPassword());
-            if (username.isEmpty() || passwordString.isEmpty()) {
-                messageLabel.setText("Ingrese usuario y contraseña.");
-                return;
-            }
-            boolean ok = mainController.iniciarSesion(username, passwordString);
-            if (ok) {
-                usuarioActual = username;
-                this.setVisible(false);
-                java.awt.EventQueue.invokeLater(() -> {
-                    MenuView mv = new MenuView(usuarioActual);
-                    mv.setLocationRelativeTo(null);
-                    mv.setVisible(true);
-                    this.dispose();
-                });
-            } else {
-                messageLabel.setText("Credenciales inválidas.");
-            }
+            LoginController controlador = new LoginController(this);
+            controlador.autenticar(username, passwordString);
         });
 
         setContentPane(panelBackground);
     }
 
-    // Getters para compatibilidad
+    // Getters para LoginController
     public JTextField getTxtUsername() {
         return lblUsername;
     }

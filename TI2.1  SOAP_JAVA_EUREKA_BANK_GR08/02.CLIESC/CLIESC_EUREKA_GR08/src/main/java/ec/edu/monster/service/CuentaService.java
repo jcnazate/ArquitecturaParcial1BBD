@@ -20,4 +20,20 @@ public class CuentaService {
         WSCuenta port = servicio.getWSCuentaPort();
         return port.obtenerCuentaPorNumero(cuenta);
     }
+    
+    // Método de conveniencia para retiro
+    public boolean realizarRetiro(String cuenta, String monto) {
+        return realizarDeposito(cuenta, monto, "RET", null);
+    }
+    
+    // Método de conveniencia para transferencia
+    // El servidor maneja la transferencia completa en una sola llamada:
+    // - Resta de cuentaOrigen (primer parámetro)
+    // - Suma a cuentaDestino (cuarto parámetro cd)
+    public boolean realizarTransferencia(String cuentaOrigen, String cuentaDestino, String monto) {
+        // Llamar al servicio con tipo TRA
+        // cuenta = cuentaOrigen (de donde se resta)
+        // cd = cuentaDestino (a donde se suma)
+        return realizarDeposito(cuentaOrigen, monto, "TRA", cuentaDestino);
+    }
 }

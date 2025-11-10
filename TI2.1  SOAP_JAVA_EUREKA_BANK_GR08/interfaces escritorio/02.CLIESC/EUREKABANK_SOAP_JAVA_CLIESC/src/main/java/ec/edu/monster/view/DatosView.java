@@ -1,16 +1,15 @@
-package ec.edu.monster.vista;
+package ec.edu.monster.view;
 
+import ec.edu.monster.model.CuentaModel;
 import ec.edu.monster.service.CuentaService;
-import ec.edu.monster.ws.CuentaModel;
 
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.LineBorder;
-
-public class CuentaView extends JFrame {
+public class DatosView extends JFrame {
 
     private static final java.util.logging.Logger logger =
-            java.util.logging.Logger.getLogger(CuentaView.class.getName());
+            java.util.logging.Logger.getLogger(DatosView.class.getName());
 
     private final CuentaService cuentaService = new CuentaService();
 
@@ -30,7 +29,7 @@ public class CuentaView extends JFrame {
     private JLabel lblMovimientosLabel;
     private JLabel lblMovimientosEncontrado;
 
-    public CuentaView() {
+    public DatosView() {
         initComponents();
     }
 
@@ -178,43 +177,43 @@ public class CuentaView extends JFrame {
         lblMovimientosEncontrado.setBounds(650, 105, 200, 24);
         panelInfoCard.add(lblMovimientosEncontrado);
 
-        // Inicialmente ocultar el panel de información
-        panelInfoCard.setVisible(false);
-
         // ===== BOTÓN VOLVER AL MENÚ =====
-        btnVolverMenu = new JButton("Volver al Menú") {
-            @Override
-            protected void paintComponent(Graphics g) {
-                Graphics2D g2 = (Graphics2D) g.create();
-                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                Color c1 = new Color(0x76, 0x4b, 0xa2);
-                Color c2 = new Color(0x66, 0x7e, 0xea);
-                GradientPaint gp = new GradientPaint(0, 0, c1, getWidth(), getHeight(), c2);
-                g2.setPaint(gp);
-                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 18, 18);
-                g2.dispose();
-                super.paintComponent(g);
-            }
-            @Override
-            public boolean isOpaque() { return false; }
-        };
-        btnVolverMenu.setFocusPainted(false);
-        btnVolverMenu.setBorderPainted(false);
-        btnVolverMenu.setContentAreaFilled(false);
-        btnVolverMenu.setForeground(Color.WHITE);
-        btnVolverMenu.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        btnVolverMenu.setBorder(new LineBorder(Color.WHITE, 4, true));
-        btnVolverMenu.setCursor(new Cursor(Cursor.HAND_CURSOR));
+       // ===== BOTÓN VOLVER AL MENÚ =====
+btnVolverMenu = new JButton("Volver al Menú") {
+    @Override
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        Color c1 = new Color(0x76, 0x4b, 0xa2);
+        Color c2 = new Color(0x66, 0x7e, 0xea);
+        GradientPaint gp = new GradientPaint(0, 0, c1, getWidth(), getHeight(), c2);
+        g2.setPaint(gp);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 18, 18);
+        g2.dispose();
+        super.paintComponent(g);
+    }
+    @Override
+    public boolean isOpaque() { return false; }
+};
+btnVolverMenu.setFocusPainted(false);
+btnVolverMenu.setBorderPainted(false);
+btnVolverMenu.setContentAreaFilled(false);
+btnVolverMenu.setForeground(Color.WHITE);
+btnVolverMenu.setFont(new Font("Segoe UI", Font.BOLD, 14));
+btnVolverMenu.setBorder(new LineBorder(Color.WHITE, 4, true));
+btnVolverMenu.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        // posición y agregado
-        int btnWidth = 220;
-        int btnHeight = 48;
+// posición y agregado
+int btnWidth = 220;
+int btnHeight = 48;
 
-        int x = (panelCardTop.getWidth() - btnWidth) / 2;
-        int y = panelInfoCard.getY() + panelInfoCard.getHeight() + 20;
 
-        btnVolverMenu.setBounds(x, y, btnWidth, btnHeight);
-        panelCardTop.add(btnVolverMenu);
+int x = (panelCardTop.getWidth() - btnWidth) / 2;
+int y = panelInfoCard.getY() + panelInfoCard.getHeight() + 20;
+
+btnVolverMenu.setBounds(x, y, btnWidth, btnHeight);
+panelCardTop.add(btnVolverMenu);
+
 
         // ===== ACCIONES =====
 
@@ -227,6 +226,9 @@ public class CuentaView extends JFrame {
         // Volver al menú
         btnVolverMenu.addActionListener(e -> {
             dispose();
+            MenuView menu = new MenuView();
+            menu.setLocationRelativeTo(null);
+            menu.setVisible(true);
         });
 
         setContentPane(panelBackground);
@@ -236,33 +238,30 @@ public class CuentaView extends JFrame {
         String numeroCuenta = txtNumeroCuenta.getText() != null
                 ? txtNumeroCuenta.getText().trim()
                 : "";
-        
+
         if (numeroCuenta.isEmpty()) {
             JOptionPane.showMessageDialog(this,
                     "Por favor, ingrese un número de cuenta.",
                     "Advertencia",
                     JOptionPane.WARNING_MESSAGE);
-            panelInfoCard.setVisible(false);
             return;
         }
-        
+
         try {
             CuentaModel cuentaModel = cuentaService.obtenerCuentaPorNumero(numeroCuenta);
-            
+
             if (cuentaModel == null) {
                 limpiarLabels();
-                panelInfoCard.setVisible(false);
                 JOptionPane.showMessageDialog(this,
                         "No se encontraron datos para la cuenta: " + numeroCuenta,
                         "Información",
                         JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
-            
+
             lblCuentaEncontrada.setText(numeroCuenta);
             lblSaldoEncontrado.setText(String.format("$ %.2f", cuentaModel.getDecCuenSaldo()));
             lblMovimientosEncontrado.setText(String.valueOf(cuentaModel.getIntCuenContMov()));
-            panelInfoCard.setVisible(true);
 
         } catch (Exception ex) {
             logger.log(java.util.logging.Level.SEVERE,
@@ -272,7 +271,6 @@ public class CuentaView extends JFrame {
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
             limpiarLabels();
-            panelInfoCard.setVisible(false);
         }
     }
 
@@ -317,6 +315,6 @@ public class CuentaView extends JFrame {
         } catch (Exception ignored) {
         }
 
-        EventQueue.invokeLater(() -> new CuentaView().setVisible(true));
+        EventQueue.invokeLater(() -> new DatosView().setVisible(true));
     }
 }

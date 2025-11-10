@@ -1,6 +1,6 @@
-package ec.edu.monster.vista;
+package ec.edu.monster.view;
 
-import ec.edu.monster.controlador.MovimientoController;
+import ec.edu.monster.controller.MovimientoController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -87,7 +87,7 @@ public class MovimientoView extends JFrame {
         panelCard.add(txtCuenta);
 
         // ===== BOTÓN CONSULTAR MOVIMIENTOS (GRADIENTE + REDONDO) =====
-        btnBuscar = new JButton("Consultar Movimientos");
+       btnBuscar = new JButton("Consultar Movimientos");
         btnBuscar.setFont(new Font("Segoe UI", Font.BOLD, 15));
         btnBuscar.setForeground(Color.WHITE);
         btnBuscar.setBounds(40, 145, 900, 40);
@@ -108,49 +108,78 @@ public class MovimientoView extends JFrame {
         jScrollPane1.setBounds(40, 200, 900, 260);
         panelCard.add(jScrollPane1);
 
-        // ===== BOTÓN VOLVER AL MENÚ (GRADIENTE + FRANJA BLANCA) =====
-        btnVolverMenu = new JButton("Volver al Menú") {
-            @Override
-            protected void paintComponent(Graphics g) {
-                Graphics2D g2 = (Graphics2D) g.create();
-                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+  // ===== BOTÓN VOLVER AL MENÚ (GRADIENTE + FRANJA BLANCA) =====
+btnVolverMenu = new JButton("Volver al Menú") {
+    @Override
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-                Color c1 = new Color(0x76, 0x4b, 0xa2);
-                Color c2 = new Color(0x66, 0x7e, 0xea);
-                GradientPaint gp = new GradientPaint(0, 0, c1, getWidth(), getHeight(), c2);
+        Color c1 = new Color(0x76, 0x4b, 0xa2);
+        Color c2 = new Color(0x66, 0x7e, 0xea);
+        GradientPaint gp = new GradientPaint(0, 0, c1, getWidth(), getHeight(), c2);
 
-                int arc = 22;
-                int margin = 3;
-                g2.setPaint(gp);
-                g2.fillRoundRect(margin, margin,
-                        getWidth() - margin * 2,
-                        getHeight() - margin * 2,
-                        arc, arc);
-                g2.dispose();
+        int arc = 22;
+        int margin = 3;
+        g2.setPaint(gp);
+        g2.fillRoundRect(margin, margin,
+                getWidth() - margin * 2,
+                getHeight() - margin * 2,
+                arc, arc);
+        g2.dispose();
 
-                super.paintComponent(g);
-            }
+        super.paintComponent(g);
+    }
 
-            @Override
-            public boolean isOpaque() { return false; }
-        };
+    @Override
+    public boolean isOpaque() { return false; }
+};
 
-        btnVolverMenu.setFont(new Font("Segoe UI", Font.BOLD, 15));
-        btnVolverMenu.setForeground(Color.WHITE);
-        btnVolverMenu.setFocusPainted(false);
-        btnVolverMenu.setContentAreaFilled(false);
-        btnVolverMenu.setBorder(BorderFactory.createLineBorder(Color.WHITE, 4, true));
-        btnVolverMenu.setCursor(new Cursor(Cursor.HAND_CURSOR));
+btnVolverMenu.setFont(new Font("Segoe UI", Font.BOLD, 15));
+btnVolverMenu.setForeground(Color.WHITE);
+btnVolverMenu.setFocusPainted(false);
+btnVolverMenu.setContentAreaFilled(false);
+btnVolverMenu.setBorder(BorderFactory.createLineBorder(Color.WHITE, 4, true));
+btnVolverMenu.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        int volverWidth = 220;
-        int volverHeight = 46;
-        int volverX = (panelCard.getWidth() - volverWidth) / 2;
-        int volverY = 480; // ajusta si quieres
-        btnVolverMenu.setBounds(volverX, volverY, volverWidth, volverHeight);
-        panelCard.add(btnVolverMenu);
+int volverWidth = 220;
+int volverHeight = 46;
+int volverX = (panelCard.getWidth() - volverWidth) / 2;
+int volverY = 480; // ajusta si quieres
+btnVolverMenu.setBounds(volverX, volverY, volverWidth, volverHeight);
+panelCard.add(btnVolverMenu);
 
-        // Consultar movimientos
-        btnBuscar.addActionListener(e -> {
+// Consultar movimientos
+btnBuscar.addActionListener(e -> {
+    MovimientoController controller = new MovimientoController();
+    String cuenta = txtCuenta.getText();
+
+    if (cuenta == null || cuenta.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(
+                this,
+                "Por favor, ingrese un número de cuenta válido.",
+                "Advertencia",
+                JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    controller.cargarMovimientos(cuenta, this);
+});
+
+// Enter = consultar
+txtCuenta.addActionListener(e -> btnBuscar.doClick());
+
+// Volver al menú
+btnVolverMenu.addActionListener(e -> {
+    dispose();
+    MenuView menu = new MenuView();
+    menu.setLocationRelativeTo(null);
+    menu.setVisible(true);
+});
+
+        // ====== ACCIÓN BOTÓN BUSCAR (usa tu MovimientoController) ======
+         btnBuscar.addActionListener(e -> {
             MovimientoController controller = new MovimientoController();
             String cuenta = txtCuenta.getText();
 
@@ -167,12 +196,15 @@ public class MovimientoView extends JFrame {
             controller.cargarMovimientos(cuenta, this);
         });
 
-        // Enter = consultar
+        // Enter en el campo también consulta
         txtCuenta.addActionListener(e -> btnBuscar.doClick());
 
         // Volver al menú
         btnVolverMenu.addActionListener(e -> {
             dispose();
+            MenuView menu = new MenuView();
+            menu.setLocationRelativeTo(null);
+            menu.setVisible(true);
         });
 
         setContentPane(panelBackground);
@@ -268,7 +300,6 @@ public class MovimientoView extends JFrame {
 
         return panelCelda;
     }
-    
     private void makeGradientButton(JButton button) {
         Color left = new Color(0x76, 0x4b, 0xa2);
         Color right = new Color(0x66, 0x7e, 0xea);

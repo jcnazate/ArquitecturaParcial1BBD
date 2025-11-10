@@ -1,15 +1,15 @@
-package ec.edu.monster.vista;
+package ec.edu.monster.view;
 
+import ec.edu.monster.model.CuentaModel;
 import ec.edu.monster.service.CuentaService;
-import ec.edu.monster.ws.CuentaModel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class DepositoView extends JFrame {
+public class RetiroView extends JFrame {
 
     private static final java.util.logging.Logger logger =
-            java.util.logging.Logger.getLogger(DepositoView.class.getName());
+            java.util.logging.Logger.getLogger(RetiroView.class.getName());
 
     private final CuentaService cuentaService = new CuentaService();
     private CuentaModel cuentaActual = null;
@@ -21,16 +21,19 @@ public class DepositoView extends JFrame {
     private JTextField txtNumeroCuenta;
     private JTextField txtMonto;
     private JButton btnBuscarCuenta;
-    private JButton btnDepositar;
+    private JButton btnRetirar;
     private JButton btnVolverMenu;
 
-    // Mensaje tipo alerta dentro del card
+    private JLabel lblCuentaInfo;
+    private JLabel lblSaldoInfo;
+
+    // Banner mensajes
     private JPanel messagePanel;
     private JLabel messageLabel;
     private Color messageBgColor;
     private Color messageFgColor;
 
-    public DepositoView() {
+    public RetiroView() {
         initComponents();
     }
 
@@ -52,7 +55,7 @@ public class DepositoView extends JFrame {
         panelBackground.setBounds(0, 0, 1100, 650);
         getContentPane().add(panelBackground);
 
-        // ===== CARD BLANCA PRINCIPAL =====
+        // ===== CARD BLANCA =====
         panelCard = new JPanel(null) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -71,13 +74,13 @@ public class DepositoView extends JFrame {
         panelBackground.add(panelCard);
 
         // ===== TÍTULO =====
-        JLabel lblTitulo = new JLabel("Realizar Depósito");
+        JLabel lblTitulo = new JLabel("Realizar Retiro");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 28));
         lblTitulo.setForeground(new Color(40, 40, 40));
         lblTitulo.setBounds(60, 35, 400, 35);
         panelCard.add(lblTitulo);
 
-        // ===== PANEL MENSAJE (éxito / error) =====
+        // ===== BANNER MENSAJE =====
         messagePanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 8)) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -118,7 +121,7 @@ public class DepositoView extends JFrame {
         txtNumeroCuenta.setBounds(60, 170, 860, 45);
         panelCard.add(txtNumeroCuenta);
 
-        // ===== BOTÓN BUSCAR CUENTA =====
+        // ===== BOTÓN CONSULTAR CUENTA =====
         btnBuscarCuenta = new JButton("Consultar Cuenta");
         btnBuscarCuenta.setFont(new Font("Segoe UI", Font.BOLD, 15));
         btnBuscarCuenta.setForeground(Color.WHITE);
@@ -126,11 +129,24 @@ public class DepositoView extends JFrame {
         makeGradientButton(btnBuscarCuenta, purple, gradientRight);
         panelCard.add(btnBuscarCuenta);
 
+        // ===== INFO CUENTA / SALDO =====
+        lblCuentaInfo = new JLabel("");
+        lblCuentaInfo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblCuentaInfo.setForeground(new Color(80, 80, 80));
+        lblCuentaInfo.setBounds(60, 285, 400, 18);
+        panelCard.add(lblCuentaInfo);
+
+        lblSaldoInfo = new JLabel("");
+        lblSaldoInfo.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        lblSaldoInfo.setForeground(new Color(40, 40, 40));
+        lblSaldoInfo.setBounds(60, 305, 400, 20);
+        panelCard.add(lblSaldoInfo);
+
         // ===== LABEL MONTO =====
-        JLabel lblMonto = new JLabel("$ Monto");
+        JLabel lblMonto = new JLabel("$ Monto a retirar");
         lblMonto.setFont(new Font("Segoe UI", Font.BOLD, 13));
         lblMonto.setForeground(labelGray);
-        lblMonto.setBounds(60, 295, 200, 18);
+        lblMonto.setBounds(60, 335, 200, 18);
         panelCard.add(lblMonto);
 
         // ===== INPUT MONTO =====
@@ -140,18 +156,18 @@ public class DepositoView extends JFrame {
                 BorderFactory.createLineBorder(inputBorder, 2, true),
                 BorderFactory.createEmptyBorder(10, 12, 10, 12)
         ));
-        txtMonto.setBounds(60, 320, 860, 45);
+        txtMonto.setBounds(60, 360, 860, 45);
         panelCard.add(txtMonto);
 
-        // ===== BOTÓN REALIZAR DEPÓSITO (DEGRADADO + REDONDO) =====
-        btnDepositar = new JButton("Realizar Depósito");
-        btnDepositar.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        btnDepositar.setForeground(Color.WHITE);
-        btnDepositar.setBounds(60, 385, 860, 50);
-        makeGradientButton(btnDepositar, purple, gradientRight);
-        panelCard.add(btnDepositar);
+        // ===== BOTÓN RETIRAR =====
+        btnRetirar = new JButton("Realizar Retiro");
+        btnRetirar.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        btnRetirar.setForeground(Color.WHITE);
+        btnRetirar.setBounds(60, 425, 860, 50);
+        makeGradientButton(btnRetirar, purple, gradientRight);
+        panelCard.add(btnRetirar);
 
-        // ===== BOTÓN VOLVER AL MENÚ =====
+        // ===== BOTÓN VOLVER MENÚ =====
         btnVolverMenu = new JButton("Volver al Menú");
         btnVolverMenu.setFont(new Font("Segoe UI", Font.BOLD, 14));
         btnVolverMenu.setForeground(new Color(80, 80, 80));
@@ -162,22 +178,22 @@ public class DepositoView extends JFrame {
                 BorderFactory.createLineBorder(new Color(230, 230, 230), 2, true),
                 BorderFactory.createEmptyBorder(8, 25, 8, 25)
         ));
-        btnVolverMenu.setBounds((panelCard.getWidth() - 200) / 2, 455, 200, 40);
+        btnVolverMenu.setBounds((panelCard.getWidth() - 200) / 2, 485, 200, 40);
         panelCard.add(btnVolverMenu);
 
         // ===== LISTENERS =====
 
-        // Buscar cuenta
         btnBuscarCuenta.addActionListener(e -> buscarCuenta());
-
         txtNumeroCuenta.addActionListener(e -> buscarCuenta());
 
-        // Depositar
-        btnDepositar.addActionListener(e -> realizarDeposito());
+        btnRetirar.addActionListener(e -> realizarRetiro());
+        txtMonto.addActionListener(e -> realizarRetiro());
 
-        // Volver al menú
         btnVolverMenu.addActionListener(e -> {
             dispose();
+            MenuView menu = new MenuView();
+            menu.setLocationRelativeTo(null);
+            menu.setVisible(true);
         });
 
         setContentPane(panelBackground);
@@ -188,82 +204,116 @@ public class DepositoView extends JFrame {
     private void buscarCuenta() {
         ocultarMensaje();
         String numeroCuenta = clean(txtNumeroCuenta.getText());
-        
+
         if (numeroCuenta.isEmpty()) {
             mostrarError("Por favor, ingrese un número de cuenta.");
             cuentaActual = null;
             numeroCuentaActual = null;
+            limpiarInfoCuenta();
             return;
         }
-        
+
         try {
             CuentaModel cuentaModel = cuentaService.obtenerCuentaPorNumero(numeroCuenta);
-            
+
             if (cuentaModel == null) {
                 mostrarError("No se encontraron datos para la cuenta: " + numeroCuenta);
                 cuentaActual = null;
                 numeroCuentaActual = null;
+                limpiarInfoCuenta();
                 return;
             }
-            
-            // Guardar referencia
+
             cuentaActual = cuentaModel;
             numeroCuentaActual = numeroCuenta;
-            
-            mostrarExito("Cuenta " + numeroCuenta + " encontrada. Ahora ingrese el monto a depositar.");
+
+            lblCuentaInfo.setText("Cuenta: " + numeroCuenta);
+            lblSaldoInfo.setText("Saldo disponible: $ " +
+                    String.format("%.2f", cuentaModel.getDecCuenSaldo()));
+
+            txtMonto.setText("");
+            mostrarExito("Cuenta encontrada. Ingrese el monto a retirar.");
 
         } catch (Exception ex) {
             logger.log(java.util.logging.Level.SEVERE, "Error al obtener los datos de la cuenta", ex);
             mostrarError("Error al obtener los datos de la cuenta: " + ex.getMessage());
             cuentaActual = null;
             numeroCuentaActual = null;
+            limpiarInfoCuenta();
         }
     }
 
-    private void realizarDeposito() {
+    private void realizarRetiro() {
         ocultarMensaje();
 
         if (cuentaActual == null || numeroCuentaActual == null) {
             mostrarError("Primero debe consultar una cuenta válida.");
             return;
         }
-        
+
         String montoStr = clean(txtMonto.getText());
         if (montoStr.isEmpty()) {
-            mostrarError("Por favor, ingrese un monto a depositar.");
+            mostrarError("Por favor, ingrese un monto a retirar.");
             return;
         }
-        
+
         try {
             double monto = Double.parseDouble(montoStr);
             if (monto <= 0) {
                 mostrarError("El monto debe ser mayor a cero.");
                 return;
             }
-            
-            boolean exito = cuentaService.realizarDeposito(numeroCuentaActual, montoStr, "DEP", null);
-            
+
+            // Obtener saldo actualizado
+            CuentaModel cuentaActualizada = cuentaService.obtenerCuentaPorNumero(numeroCuentaActual);
+            if (cuentaActualizada == null) {
+                mostrarError("No se pudo obtener la información actualizada de la cuenta.");
+                return;
+            }
+            cuentaActual = cuentaActualizada;
+
+            double saldoActual = cuentaActual.getDecCuenSaldo();
+            lblSaldoInfo.setText("Saldo disponible: $ " + String.format("%.2f", saldoActual));
+
+            if (saldoActual < monto) {
+                mostrarError("Saldo insuficiente. Disponible: $ "
+                        + String.format("%.2f", saldoActual)
+                        + " | Solicitado: $ " + String.format("%.2f", monto));
+                return;
+            }
+
+            // Usas tu mismo método del servicio para registrar con tipo RET
+            // Llamar al endpoint de retiro
+            boolean exito = cuentaService.realizarRetiro(numeroCuentaActual, montoStr);
+
+
             if (exito) {
-                mostrarExito("Depósito realizado con éxito.");
-                // refrescar cuenta (por si quieres usarla luego)
-                CuentaModel actualizada = cuentaService.obtenerCuentaPorNumero(numeroCuentaActual);
-                if (actualizada != null) {
-                    cuentaActual = actualizada;
+                mostrarExito("Retiro realizado con éxito.");
+                CuentaModel despues = cuentaService.obtenerCuentaPorNumero(numeroCuentaActual);
+                if (despues != null) {
+                    cuentaActual = despues;
+                    lblSaldoInfo.setText("Saldo disponible: $ " +
+                            String.format("%.2f", despues.getDecCuenSaldo()));
                 }
                 txtMonto.setText("");
             } else {
-                mostrarError("Error al realizar el depósito.");
+                mostrarError("Error al realizar el retiro. Verifique que tenga fondos suficientes.");
             }
-            
+
         } catch (NumberFormatException e) {
             mostrarError("Por favor, ingrese un monto válido (número).");
         } catch (Exception e) {
-            logger.log(java.util.logging.Level.SEVERE, "Error al realizar el depósito", e);
-            mostrarError("Error al realizar el depósito: " + e.getMessage());
+            logger.log(java.util.logging.Level.SEVERE, "Error al realizar el retiro", e);
+            mostrarError("Error al realizar el retiro: " + e.getMessage());
         }
     }
 
-    // ========= MENSAJES ESTILO BANNER =========
+    private void limpiarInfoCuenta() {
+        lblCuentaInfo.setText("");
+        lblSaldoInfo.setText("");
+    }
+
+    // ========= BANNERS =========
 
     private void mostrarExito(String texto) {
         messageBgColor = new Color(220, 248, 224);      // verde suave
@@ -294,7 +344,7 @@ public class DepositoView extends JFrame {
         return s == null ? "" : s.trim();
     }
 
-    // ========= BOTÓN DEGRADADO =========
+    // ========= BOTONES DEGRADADO =========
 
     private void makeGradientButton(JButton button, Color left, Color right) {
         button.setContentAreaFilled(false);
@@ -327,6 +377,6 @@ public class DepositoView extends JFrame {
             }
         } catch (Exception ignored) {}
 
-        EventQueue.invokeLater(() -> new DepositoView().setVisible(true));
+        EventQueue.invokeLater(() -> new RetiroView().setVisible(true));
     }
 }

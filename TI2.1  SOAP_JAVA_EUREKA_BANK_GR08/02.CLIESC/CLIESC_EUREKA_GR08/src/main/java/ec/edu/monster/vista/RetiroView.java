@@ -1,259 +1,212 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ec.edu.monster.vista;
 
 import ec.edu.monster.service.CuentaService;
 import ec.edu.monster.ws.CuentaModel;
-import javax.swing.JOptionPane;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.BorderFactory;
 
-/**
- *
- * @author JOHAN
- */
-public class RetiroView extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RetiroView.class.getName());
+import javax.swing.*;
+import java.awt.*;
+
+public class RetiroView extends JFrame {
+
+    private static final java.util.logging.Logger logger =
+            java.util.logging.Logger.getLogger(RetiroView.class.getName());
+
     private final CuentaService cuentaService = new CuentaService();
     private CuentaModel cuentaActual = null;
     private String numeroCuentaActual = null;
-    private Color colorFondo = new Color(118, 75, 162); // #764ba2
-    private Color colorGradiente2 = new Color(118, 75, 162); // #764ba2
 
-    /**
-     * Creates new form RetiroView
-     */
+    // UI
+    private JPanel panelBackground;
+    private JPanel panelCard;
+    private JTextField txtNumeroCuenta;
+    private JTextField txtMonto;
+    private JButton btnBuscarCuenta;
+    private JButton btnRetirar;
+    private JButton btnVolverMenu;
+
+    private JLabel lblCuentaInfo;
+    private JLabel lblSaldoInfo;
+
+    // Banner mensajes
+    private JPanel messagePanel;
+    private JLabel messageLabel;
+    private Color messageBgColor;
+    private Color messageFgColor;
+
     public RetiroView() {
         initComponents();
-        aplicarEstiloModerno();
-        // Agregar listener fuera de la sección generada para que no se elimine al modificar el diseño
-        btnBuscarCuenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarCuentaActionPerformed(evt);
-            }
-        });
-        
-        btnRetirar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRetirarActionPerformed(evt);
-            }
-        });
-        
-        // Ocultar inicialmente los componentes de retiro
-        ocultarComponentesRetiro();
-    }
-    
-    private void aplicarEstiloModerno() {
-        // Configurar el fondo del frame
-        getContentPane().setBackground(colorFondo);
-        setBackground(colorFondo);
-        
-        // Estilo de labels
-        jLabel1.setForeground(Color.WHITE);
-        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        jLabel2.setForeground(Color.WHITE);
-        jLabel2.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        
-        // Estilo de campos de texto
-        txtNumeroCuenta.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(new Color(224, 224, 224), 2),
-            BorderFactory.createEmptyBorder(12, 20, 12, 20)
-        ));
-        txtNumeroCuenta.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        txtNumeroCuenta.setBackground(Color.WHITE);
-        txtNumeroCuenta.setOpaque(true);
-        
-        txtMonto.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(new Color(224, 224, 224), 2),
-            BorderFactory.createEmptyBorder(12, 20, 12, 20)
-        ));
-        txtMonto.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        txtMonto.setBackground(Color.WHITE);
-        txtMonto.setOpaque(true);
-        
-        // Estilo de botones
-        estiloBoton(btnBuscarCuenta);
-        estiloBoton(btnRetirar);
-        
-        // Estilo del panel de información
-        jPanel1.setBackground(Color.WHITE);
-        jPanel1.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(new Color(224, 224, 224), 1),
-            BorderFactory.createEmptyBorder(20, 20, 20, 20)
-        ));
-        
-        jLabel3.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        jLabel4.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        lblCuentaEncontrada.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        lblSaldoEncontrado.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-    }
-    
-    private void estiloBoton(javax.swing.JButton btn) {
-        btn.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        btn.setForeground(Color.WHITE);
-        btn.setBackground(colorGradiente2);
-        btn.setBorderPainted(false);
-        btn.setFocusPainted(false);
-        btn.setOpaque(true);
-        btn.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
-    }
-    
-    private void ocultarComponentesRetiro() {
-        jPanel1.setVisible(false);
-        jLabel2.setVisible(false);
-        txtMonto.setVisible(false);
-        btnRetirar.setVisible(false);
-    }
-    
-    private void mostrarComponentesRetiro() {
-        jPanel1.setVisible(true);
-        jLabel2.setVisible(true);
-        txtMonto.setVisible(true);
-        btnRetirar.setVisible(true);
     }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setSize(1100, 650);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        getContentPane().setLayout(null);
 
-        jLabel1 = new javax.swing.JLabel();
-        btnBuscarCuenta = new javax.swing.JButton();
-        txtNumeroCuenta = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        lblCuentaEncontrada = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblSaldoEncontrado = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        lblMovimientosEncontrado = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtMonto = new javax.swing.JTextField();
-        btnRetirar = new javax.swing.JButton();
+        Color purple = new Color(0x76, 0x4b, 0xa2);
+        Color gradientRight = new Color(0x66, 0x7e, 0xea);
+        Color labelGray = new Color(110, 110, 110);
+        Color inputBorder = new Color(220, 230, 255);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        // ===== FONDO MORADO =====
+        panelBackground = new JPanel(null);
+        panelBackground.setBackground(purple);
+        panelBackground.setBounds(0, 0, 1100, 650);
+        getContentPane().add(panelBackground);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel1.setText("Ingrese el número de Cuenta");
+        // ===== CARD BLANCA =====
+        panelCard = new JPanel(null) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(Color.WHITE);
+                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 40, 40);
+                g2.dispose();
+                super.paintComponent(g);
+            }
 
-        btnBuscarCuenta.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        btnBuscarCuenta.setText("Buscar");
+            @Override
+            public boolean isOpaque() { return false; }
+        };
+        panelCard.setBounds(60, 40, 980, 540);
+        panelBackground.add(panelCard);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        // ===== TÍTULO =====
+        JLabel lblTitulo = new JLabel("Realizar Retiro");
+        lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        lblTitulo.setForeground(new Color(40, 40, 40));
+        lblTitulo.setBounds(60, 35, 400, 35);
+        panelCard.add(lblTitulo);
 
-        lblCuentaEncontrada.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        // ===== BANNER MENSAJE =====
+        messagePanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 8)) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                if (messageBgColor != null) {
+                    Graphics2D g2 = (Graphics2D) g.create();
+                    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                    g2.setColor(messageBgColor);
+                    g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
+                    g2.dispose();
+                }
+                super.paintComponent(g);
+            }
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel3.setText("Cuenta: ");
+            @Override
+            public boolean isOpaque() { return false; }
+        };
+        messageLabel = new JLabel();
+        messageLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        messagePanel.add(messageLabel);
+        messagePanel.setVisible(false);
+        messagePanel.setBounds(60, 90, 860, 40);
+        panelCard.add(messagePanel);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel4.setText("Saldo disponible:");
+        // ===== LABEL NÚMERO DE CUENTA =====
+        JLabel lblNumCuenta = new JLabel("Número de Cuenta");
+        lblNumCuenta.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        lblNumCuenta.setForeground(labelGray);
+        lblNumCuenta.setBounds(60, 145, 200, 18);
+        panelCard.add(lblNumCuenta);
 
-        lblSaldoEncontrado.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        // ===== INPUT NÚMERO DE CUENTA =====
+        txtNumeroCuenta = new JTextField();
+        txtNumeroCuenta.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        txtNumeroCuenta.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(inputBorder, 2, true),
+                BorderFactory.createEmptyBorder(10, 12, 10, 12)
+        ));
+        txtNumeroCuenta.setBounds(60, 170, 860, 45);
+        panelCard.add(txtNumeroCuenta);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel5.setText("Movimientos");
-        jLabel5.setVisible(false);
+        // ===== BOTÓN CONSULTAR CUENTA =====
+        btnBuscarCuenta = new JButton("Consultar Cuenta");
+        btnBuscarCuenta.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        btnBuscarCuenta.setForeground(Color.WHITE);
+        btnBuscarCuenta.setBounds(60, 230, 860, 45);
+        makeGradientButton(btnBuscarCuenta, purple, gradientRight);
+        panelCard.add(btnBuscarCuenta);
 
-        lblMovimientosEncontrado.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        lblMovimientosEncontrado.setVisible(false);
+        // ===== INFO CUENTA / SALDO =====
+        lblCuentaInfo = new JLabel("");
+        lblCuentaInfo.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblCuentaInfo.setForeground(new Color(80, 80, 80));
+        lblCuentaInfo.setBounds(60, 285, 400, 18);
+        panelCard.add(lblCuentaInfo);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCuentaEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSaldoEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(239, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCuentaEncontrada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(lblSaldoEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        lblSaldoInfo = new JLabel("");
+        lblSaldoInfo.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        lblSaldoInfo.setForeground(new Color(40, 40, 40));
+        lblSaldoInfo.setBounds(60, 305, 400, 20);
+        panelCard.add(lblSaldoInfo);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel2.setText("Monto a retirar:");
+        // ===== LABEL MONTO =====
+        JLabel lblMonto = new JLabel("$ Monto a retirar");
+        lblMonto.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        lblMonto.setForeground(labelGray);
+        lblMonto.setBounds(60, 335, 200, 18);
+        panelCard.add(lblMonto);
 
-        txtMonto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        // ===== INPUT MONTO =====
+        txtMonto = new JTextField();
+        txtMonto.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        txtMonto.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(inputBorder, 2, true),
+                BorderFactory.createEmptyBorder(10, 12, 10, 12)
+        ));
+        txtMonto.setBounds(60, 360, 860, 45);
+        panelCard.add(txtMonto);
 
-        btnRetirar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        btnRetirar.setText("Retirar");
+        // ===== BOTÓN RETIRAR =====
+        btnRetirar = new JButton("Realizar Retiro");
+        btnRetirar.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        btnRetirar.setForeground(Color.WHITE);
+        btnRetirar.setBounds(60, 425, 860, 50);
+        makeGradientButton(btnRetirar, purple, gradientRight);
+        panelCard.add(btnRetirar);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(btnBuscarCuenta))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(btnRetirar)))
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarCuenta))
-                .addGap(43, 43, 43)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRetirar))
-                .addContainerGap(96, Short.MAX_VALUE))
-        );
+        // ===== BOTÓN VOLVER MENÚ =====
+        btnVolverMenu = new JButton("Volver al Menú");
+        btnVolverMenu.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        btnVolverMenu.setForeground(new Color(80, 80, 80));
+        btnVolverMenu.setFocusPainted(false);
+        btnVolverMenu.setContentAreaFilled(false);
+        btnVolverMenu.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnVolverMenu.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(230, 230, 230), 2, true),
+                BorderFactory.createEmptyBorder(8, 25, 8, 25)
+        ));
+        btnVolverMenu.setBounds((panelCard.getWidth() - 200) / 2, 485, 200, 40);
+        panelCard.add(btnVolverMenu);
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+        // ===== LISTENERS =====
 
-    private void btnBuscarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCuentaActionPerformed
-        String numeroCuenta = txtNumeroCuenta.getText() != null ? txtNumeroCuenta.getText().trim() : "";
+        btnBuscarCuenta.addActionListener(e -> buscarCuenta());
+        txtNumeroCuenta.addActionListener(e -> buscarCuenta());
+
+        btnRetirar.addActionListener(e -> realizarRetiro());
+        txtMonto.addActionListener(e -> realizarRetiro());
+
+        btnVolverMenu.addActionListener(e -> {
+            dispose();
+        });
+
+        setContentPane(panelBackground);
+    }
+
+    // ========= LÓGICA =========
+
+    private void buscarCuenta() {
+        ocultarMensaje();
+        String numeroCuenta = clean(txtNumeroCuenta.getText());
         
         if (numeroCuenta.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese un número de cuenta.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-            ocultarComponentesRetiro();
+            mostrarError("Por favor, ingrese un número de cuenta.");
+            cuentaActual = null;
+            numeroCuentaActual = null;
+            limpiarInfoCuenta();
             return;
         }
         
@@ -261,151 +214,164 @@ public class RetiroView extends javax.swing.JFrame {
             CuentaModel cuentaModel = cuentaService.obtenerCuentaPorNumero(numeroCuenta);
             
             if (cuentaModel == null) {
-                lblCuentaEncontrada.setText("");
-                lblSaldoEncontrado.setText("");
-                lblMovimientosEncontrado.setText("");
-                ocultarComponentesRetiro();
-                JOptionPane.showMessageDialog(this, "No se encontraron datos para la cuenta: " + numeroCuenta, "Información", JOptionPane.INFORMATION_MESSAGE);
+                mostrarError("No se encontraron datos para la cuenta: " + numeroCuenta);
+                cuentaActual = null;
+                numeroCuentaActual = null;
+                limpiarInfoCuenta();
                 return;
             }
             
-            // Guardar la cuenta actual y el número de cuenta
             cuentaActual = cuentaModel;
             numeroCuentaActual = numeroCuenta;
             
-            // Establecer el número de cuenta encontrado
-            lblCuentaEncontrada.setText(numeroCuenta);
-            
-            // Establecer el saldo disponible
-            lblSaldoEncontrado.setText(String.format("%.2f", cuentaModel.getDecCuenSaldo()));
-            
-            // Limpiar el campo de movimientos (no se muestra)
-            lblMovimientosEncontrado.setText("");
-            
-            // Limpiar el campo de monto y mostrar los componentes de retiro
+            lblCuentaInfo.setText("Cuenta: " + numeroCuenta);
+            lblSaldoInfo.setText("Saldo disponible: $ " +
+                    String.format("%.2f", cuentaModel.getDecCuenSaldo()));
+
             txtMonto.setText("");
-            mostrarComponentesRetiro();
-            
-        } catch (Exception e) {
-            logger.log(java.util.logging.Level.SEVERE, "Error al obtener los datos de la cuenta", e);
-            JOptionPane.showMessageDialog(this, "Error al obtener los datos de la cuenta: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            lblCuentaEncontrada.setText("");
-            lblSaldoEncontrado.setText("");
-            lblMovimientosEncontrado.setText("");
-            ocultarComponentesRetiro();
+            mostrarExito("Cuenta encontrada. Ingrese el monto a retirar.");
+
+        } catch (Exception ex) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al obtener los datos de la cuenta", ex);
+            mostrarError("Error al obtener los datos de la cuenta: " + ex.getMessage());
             cuentaActual = null;
             numeroCuentaActual = null;
+            limpiarInfoCuenta();
         }
-    }//GEN-LAST:event_btnBuscarCuentaActionPerformed
+    }
 
-    private void btnRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirarActionPerformed
-        if (cuentaActual == null) {
-            JOptionPane.showMessageDialog(this, "Por favor, busque una cuenta primero.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+    private void realizarRetiro() {
+        ocultarMensaje();
+
+        if (cuentaActual == null || numeroCuentaActual == null) {
+            mostrarError("Primero debe consultar una cuenta válida.");
             return;
         }
         
-        String montoStr = txtMonto.getText() != null ? txtMonto.getText().trim() : "";
-        
+        String montoStr = clean(txtMonto.getText());
         if (montoStr.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese un monto a retirar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            mostrarError("Por favor, ingrese un monto a retirar.");
             return;
         }
         
         try {
             double monto = Double.parseDouble(montoStr);
-            
             if (monto <= 0) {
-                JOptionPane.showMessageDialog(this, "El monto debe ser mayor a cero.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                mostrarError("El monto debe ser mayor a cero.");
                 return;
             }
             
-            // Actualizar el saldo de la cuenta antes de validar para obtener el saldo más reciente
+            // Obtener saldo actualizado
             CuentaModel cuentaActualizada = cuentaService.obtenerCuentaPorNumero(numeroCuentaActual);
             if (cuentaActualizada == null) {
-                JOptionPane.showMessageDialog(this, "No se pudo obtener la información actualizada de la cuenta.", "Error", JOptionPane.ERROR_MESSAGE);
+                mostrarError("No se pudo obtener la información actualizada de la cuenta.");
                 return;
             }
             cuentaActual = cuentaActualizada;
-            // Actualizar el saldo mostrado en pantalla
-            lblSaldoEncontrado.setText(String.format("%.2f", cuentaActualizada.getDecCuenSaldo()));
             
-            // Verificar que el saldo sea suficiente
             double saldoActual = cuentaActual.getDecCuenSaldo();
+            lblSaldoInfo.setText("Saldo disponible: $ " + String.format("%.2f", saldoActual));
+
             if (saldoActual < monto) {
-                JOptionPane.showMessageDialog(this, 
-                    "Saldo insuficiente.\nSaldo disponible: " + String.format("%.2f", saldoActual) + 
-                    "\nMonto solicitado: " + String.format("%.2f", monto), 
-                    "Error - Fondos Insuficientes", 
-                    JOptionPane.ERROR_MESSAGE);
+                mostrarError("Saldo insuficiente. Disponible: $ "
+                        + String.format("%.2f", saldoActual)
+                        + " | Solicitado: $ " + String.format("%.2f", monto));
                 return;
             }
             
-            // Realizar el retiro con tipo "RET" y cd null usando el número de cuenta
-            boolean exito = cuentaService.realizarDeposito(numeroCuentaActual, montoStr, "RET", null);
+            // Llamar al método de retiro
+            boolean exito = cuentaService.realizarRetiro(numeroCuentaActual, montoStr);
             
             if (exito) {
-                JOptionPane.showMessageDialog(this, "Retiro realizado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                
-                // Actualizar los datos de la cuenta después del retiro exitoso
-                CuentaModel cuentaActualizadaDespues = cuentaService.obtenerCuentaPorNumero(numeroCuentaActual);
-                if (cuentaActualizadaDespues != null) {
-                    cuentaActual = cuentaActualizadaDespues;
-                    // Actualizar el saldo mostrado en pantalla
-                    lblSaldoEncontrado.setText(String.format("%.2f", cuentaActualizadaDespues.getDecCuenSaldo()));
+                mostrarExito("Retiro realizado con éxito.");
+                CuentaModel despues = cuentaService.obtenerCuentaPorNumero(numeroCuentaActual);
+                if (despues != null) {
+                    cuentaActual = despues;
+                    lblSaldoInfo.setText("Saldo disponible: $ " +
+                            String.format("%.2f", despues.getDecCuenSaldo()));
                 }
-                
-                // Limpiar el campo de monto
                 txtMonto.setText("");
             } else {
-                JOptionPane.showMessageDialog(this, "Error al realizar el retiro. Verifique que tenga fondos suficientes.", "Error", JOptionPane.ERROR_MESSAGE);
+                mostrarError("Error al realizar el retiro. Verifique que tenga fondos suficientes.");
             }
             
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese un monto válido (número).", "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarError("Por favor, ingrese un monto válido (número).");
         } catch (Exception e) {
             logger.log(java.util.logging.Level.SEVERE, "Error al realizar el retiro", e);
-            JOptionPane.showMessageDialog(this, "Error al realizar el retiro: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarError("Error al realizar el retiro: " + e.getMessage());
         }
-    }//GEN-LAST:event_btnRetirarActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void limpiarInfoCuenta() {
+        lblCuentaInfo.setText("");
+        lblSaldoInfo.setText("");
+    }
+
+    // ========= BANNERS =========
+
+    private void mostrarExito(String texto) {
+        messageBgColor = new Color(220, 248, 224);      // verde suave
+        messageFgColor = new Color(0, 140, 70);         // verde fuerte
+        messageLabel.setForeground(messageFgColor);
+        messageLabel.setText(texto);
+        messagePanel.setVisible(true);
+        messagePanel.repaint();
+    }
+
+    private void mostrarError(String texto) {
+        messageBgColor = new Color(252, 226, 226);      // rojo suave
+        messageFgColor = new Color(180, 40, 40);        // rojo fuerte
+        messageLabel.setForeground(messageFgColor);
+        messageLabel.setText(texto);
+        messagePanel.setVisible(true);
+        messagePanel.repaint();
+    }
+
+    private void ocultarMensaje() {
+        messagePanel.setVisible(false);
+        messageLabel.setText("");
+        messageBgColor = null;
+        messageFgColor = null;
+    }
+
+    private String clean(String s) {
+        return s == null ? "" : s.trim();
+    }
+
+    // ========= BOTONES DEGRADADO =========
+
+    private void makeGradientButton(JButton button, Color left, Color right) {
+        button.setContentAreaFilled(false);
+        button.setOpaque(false);
+        button.setFocusPainted(false);
+        button.setBorderPainted(false);
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        button.setUI(new javax.swing.plaf.basic.BasicButtonUI() {
+            @Override
+            public void paint(Graphics g, JComponent c) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                GradientPaint gp = new GradientPaint(0, 0, left, c.getWidth(), c.getHeight(), right);
+                g2.setPaint(gp);
+                g2.fillRoundRect(0, 0, c.getWidth(), c.getHeight(), 18, 18);
+                g2.dispose();
+                super.paint(g, c);
+            }
+        });
+    }
+
+    public static void main(String[] args) {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        } catch (Exception ignored) {}
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new RetiroView().setVisible(true));
+        EventQueue.invokeLater(() -> new RetiroView().setVisible(true));
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscarCuenta;
-    private javax.swing.JButton btnRetirar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblCuentaEncontrada;
-    private javax.swing.JLabel lblMovimientosEncontrado;
-    private javax.swing.JLabel lblSaldoEncontrado;
-    private javax.swing.JTextField txtMonto;
-    private javax.swing.JTextField txtNumeroCuenta;
-    // End of variables declaration//GEN-END:variables
 }

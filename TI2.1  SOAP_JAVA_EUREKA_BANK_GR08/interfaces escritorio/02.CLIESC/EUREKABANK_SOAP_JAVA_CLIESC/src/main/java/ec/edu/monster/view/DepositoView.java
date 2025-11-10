@@ -1,7 +1,7 @@
-package ec.edu.monster.vista;
+package ec.edu.monster.view;
 
+import ec.edu.monster.model.CuentaModel;
 import ec.edu.monster.service.CuentaService;
-import ec.edu.monster.ws.CuentaModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -178,6 +178,9 @@ public class DepositoView extends JFrame {
         // Volver al menú
         btnVolverMenu.addActionListener(e -> {
             dispose();
+            MenuView menu = new MenuView();
+            menu.setLocationRelativeTo(null);
+            menu.setVisible(true);
         });
 
         setContentPane(panelBackground);
@@ -188,28 +191,28 @@ public class DepositoView extends JFrame {
     private void buscarCuenta() {
         ocultarMensaje();
         String numeroCuenta = clean(txtNumeroCuenta.getText());
-        
+
         if (numeroCuenta.isEmpty()) {
             mostrarError("Por favor, ingrese un número de cuenta.");
             cuentaActual = null;
             numeroCuentaActual = null;
             return;
         }
-        
+
         try {
             CuentaModel cuentaModel = cuentaService.obtenerCuentaPorNumero(numeroCuenta);
-            
+
             if (cuentaModel == null) {
                 mostrarError("No se encontraron datos para la cuenta: " + numeroCuenta);
                 cuentaActual = null;
                 numeroCuentaActual = null;
                 return;
             }
-            
+
             // Guardar referencia
             cuentaActual = cuentaModel;
             numeroCuentaActual = numeroCuenta;
-            
+
             mostrarExito("Cuenta " + numeroCuenta + " encontrada. Ahora ingrese el monto a depositar.");
 
         } catch (Exception ex) {
@@ -227,22 +230,22 @@ public class DepositoView extends JFrame {
             mostrarError("Primero debe consultar una cuenta válida.");
             return;
         }
-        
+
         String montoStr = clean(txtMonto.getText());
         if (montoStr.isEmpty()) {
             mostrarError("Por favor, ingrese un monto a depositar.");
             return;
         }
-        
+
         try {
             double monto = Double.parseDouble(montoStr);
             if (monto <= 0) {
                 mostrarError("El monto debe ser mayor a cero.");
                 return;
             }
-            
+
             boolean exito = cuentaService.realizarDeposito(numeroCuentaActual, montoStr, "DEP", null);
-            
+
             if (exito) {
                 mostrarExito("Depósito realizado con éxito.");
                 // refrescar cuenta (por si quieres usarla luego)
@@ -254,7 +257,7 @@ public class DepositoView extends JFrame {
             } else {
                 mostrarError("Error al realizar el depósito.");
             }
-            
+
         } catch (NumberFormatException e) {
             mostrarError("Por favor, ingrese un monto válido (número).");
         } catch (Exception e) {

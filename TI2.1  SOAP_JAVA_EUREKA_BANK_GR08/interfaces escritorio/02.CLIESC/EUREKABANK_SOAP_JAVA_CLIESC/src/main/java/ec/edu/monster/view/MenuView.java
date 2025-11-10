@@ -1,4 +1,4 @@
-package ec.edu.monster.vista;
+package ec.edu.monster.view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,14 +24,7 @@ public class MenuView extends JFrame {
     private static final Color PURPLE = new Color(0x76, 0x4b, 0xa2);
     private static final Color CARD_BLUE = new Color(0x5f, 0x82, 0xff);
 
-    private String username;
-
     public MenuView() {
-        this("Usuario");
-    }
-
-    public MenuView(String username) {
-        this.username = username;
         initComponents();
         configurarEventos();
     }
@@ -60,7 +53,7 @@ public class MenuView extends JFrame {
         lblLogo.setBounds(30, 10, 300, 40);
         headerPanel.add(lblLogo);
 
-        lblUserName = new JLabel(username != null ? username.toUpperCase() : "MONSTER");
+        lblUserName = new JLabel("MONSTER");
         lblUserName.setFont(new Font("Segoe UI", Font.BOLD, 14));
         lblUserName.setForeground(new Color(70, 70, 70));
         lblUserName.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -109,7 +102,7 @@ public class MenuView extends JFrame {
         bgPanel.add(cardPanel);
 
         // TÍTULO
-        JLabel lblTitulo = new JLabel("Bienvenido, " + (username != null ? username.toUpperCase() : "MONSTER"));
+        JLabel lblTitulo = new JLabel("Bienvenido, MONSTER");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 28));
         lblTitulo.setForeground(new Color(40, 40, 40));
         lblTitulo.setBounds(80, 40, 500, 30);
@@ -207,33 +200,23 @@ public class MenuView extends JFrame {
 
     private void configurarEventos() {
         btnDeposito.addActionListener(evt -> {
-            DepositoView depositoView = new DepositoView();
-            depositoView.setLocationRelativeTo(null);
-            depositoView.setVisible(true);
+            new DepositoView().setVisible(true);
         });
 
         btnRetiro.addActionListener(evt -> {
-            RetiroView retiroView = new RetiroView();
-            retiroView.setLocationRelativeTo(null);
-            retiroView.setVisible(true);
+            new RetiroView().setVisible(true);
         });
 
         btnTransferencia.addActionListener(evt -> {
-            TransferenciaView transferenciaView = new TransferenciaView();
-            transferenciaView.setLocationRelativeTo(null);
-            transferenciaView.setVisible(true);
+            new TransferenciaView().setVisible(true);
         });
 
         btnMovimientos.addActionListener(evt -> {
-            MovimientoView movimientoView = new MovimientoView();
-            movimientoView.setLocationRelativeTo(null);
-            movimientoView.setVisible(true);
+            new MovimientoView().setVisible(true);
         });
 
         btnDatosCuenta.addActionListener(evt -> {
-            CuentaView cuentaView = new CuentaView();
-            cuentaView.setLocationRelativeTo(null);
-            cuentaView.setVisible(true);
+            new DatosView().setVisible(true);
         });
 
         btnCerrarSesion.addActionListener(evt -> {
