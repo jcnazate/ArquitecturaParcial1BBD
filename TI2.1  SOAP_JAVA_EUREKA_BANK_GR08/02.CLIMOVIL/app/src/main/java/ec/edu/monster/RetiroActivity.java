@@ -57,7 +57,7 @@ public class RetiroActivity extends AppCompatActivity {
             String cuenta = params[0];
             String monto = params[1];
 
-            return cuentaService.realizarDeposito(cuenta, monto, "RET", null);
+            return cuentaService.realizarRetiro(cuenta, monto);
         }
 
         @Override

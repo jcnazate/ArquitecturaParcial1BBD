@@ -73,6 +73,11 @@ public class CuentaService {
             movimiento.setCodigoEmpleado("0001");  // Update as needed
             movimiento.setCodigoTipoMovimiento(codTipo);
             movimiento.setImporteMovimiento(importe);
+            
+            // Para transferencias, guardar la cuenta destino en cuentaReferencia
+            if (tipo.equalsIgnoreCase("TRA")) {
+                movimiento.setCuentaReferencia(cuentaDest);
+            }
 
             movimientoDAO.registrarMovimiento(movimiento);
 
@@ -87,6 +92,8 @@ public class CuentaService {
                 movimientoDest.setCodigoEmpleado("0001");  // Update as needed
                 movimientoDest.setCodigoTipoMovimiento("008");
                 movimientoDest.setImporteMovimiento(importe);
+                // Para transferencias entrantes, guardar la cuenta origen en cuentaReferencia
+                movimientoDest.setCuentaReferencia(codigoCuenta);
 
                 movimientoDAO.registrarMovimiento(movimientoDest);
             }

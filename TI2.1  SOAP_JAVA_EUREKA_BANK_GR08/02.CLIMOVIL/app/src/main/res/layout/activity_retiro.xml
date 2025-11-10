@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".RetiroActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/fondo_opciones" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/overlay_blanco_60" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            app:cardBackgroundColor="@color/navy_blue"
-            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/primary"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <LinearLayout
@@ -48,7 +38,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="💵 Retiro"
+                    android:text="⬆️ Realizar Retiro"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -60,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/card_background"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <LinearLayout
@@ -72,8 +62,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Información de Retiro"
-                    android:textColor="@color/primary"
+                    android:text="💳 Información de Retiro"
+                    android:textColor="@color/text_primary"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="24dp" />
@@ -83,16 +73,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Número de Cuenta"
-                    app:hintTextColor="@color/primary"
-                    app:boxStrokeColor="@color/primary"
-                    android:layout_marginBottom="16dp">
+                    app:hintTextColor="#FF000000"
+                    app:boxStrokeColor="@color/input_focus"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/HintTextAppearanceDark"
+                    app:expandedHintEnabled="true"
+                    app:boxStrokeWidth="2dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    android:layout_marginBottom="16dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etCuenta"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="#FF000000"
+                        android:textSize="16sp"
+                        android:textColorHint="#FF000000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Monto -->
@@ -100,16 +98,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Monto"
-                    app:hintTextColor="@color/primary"
-                    app:boxStrokeColor="@color/primary"
-                    android:layout_marginBottom="24dp">
+                    app:hintTextColor="#FF000000"
+                    app:boxStrokeColor="@color/input_focus"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/HintTextAppearanceDark"
+                    app:expandedHintEnabled="true"
+                    app:boxStrokeWidth="2dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    android:layout_marginBottom="24dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etMonto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="#FF000000"
+                        android:textSize="16sp"
+                        android:textColorHint="#FF000000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- ProgressBar -->
@@ -126,7 +132,7 @@
                     android:id="@+id/btnRealizar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="REALIZAR RETIRO"
+                    android:text="Realizar Retiro"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -140,4 +146,3 @@
     </LinearLayout>
     </ScrollView>
 </FrameLayout>
-

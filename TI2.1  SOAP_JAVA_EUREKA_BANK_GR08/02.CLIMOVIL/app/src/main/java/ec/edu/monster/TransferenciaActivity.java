@@ -59,13 +59,11 @@ public class TransferenciaActivity extends AppCompatActivity {
             String cuentaDestino = params[1];
             String monto = params[2];
 
-            // Primero retiro de la cuenta origen
-            boolean retiroExitoso = cuentaService.realizarDeposito(cuentaOrigen, monto, "RET", null);
-            if (retiroExitoso) {
-                // Luego depósito en la cuenta destino
-                return cuentaService.realizarDeposito(cuentaDestino, monto, "TRA", cuentaOrigen);
-            }
-            return false;
+            // El servidor maneja la transferencia completa en una sola llamada:
+            // - Resta el monto de la cuenta origen
+            // - Suma el monto a la cuenta destino
+            // Todo en una transacción atómica
+            return cuentaService.realizarTransferencia(cuentaOrigen, cuentaDestino, monto);
         }
 
         @Override
@@ -79,7 +77,7 @@ public class TransferenciaActivity extends AppCompatActivity {
                 etCuentaDestino.setText("");
                 etMonto.setText("");
             } else {
-                Toast.makeText(TransferenciaActivity.this, "Error al realizar la transferencia", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TransferenciaActivity.this, "Error al realizar la transferencia. Verifique que la cuenta origen tenga saldo suficiente.", Toast.LENGTH_LONG).show();
             }
         }
     }

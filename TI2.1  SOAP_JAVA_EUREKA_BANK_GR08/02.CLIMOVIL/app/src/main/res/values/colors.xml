@@ -44,14 +44,30 @@
     <color name="lilac">#e4dcee</color>
     <color name="ivory">#f8fbec</color>
     
-    <!-- Colores para la UI -->
-    <color name="primary">#329164</color>
-    <color name="primary_light">#8bc6a1</color>
-    <color name="accent">#7bb43c</color>
-    <color name="background">#f4f9f8</color>
-    <color name="card_background">#fcfbfb</color>
-    <color name="text_primary">#363f4b</color>
-    <color name="text_secondary">#070808</color>
-    <color name="error">#d32f2f</color>
-    <color name="success">#388e3c</color>
+    <!-- Colores para la UI - Estandarizados con cliente web -->
+    <color name="primary">#667eea</color>
+    <color name="primary_dark">#764ba2</color>
+    <color name="primary_light">#667eea</color>
+    <color name="accent">#764ba2</color>
+    <color name="background">#764ba2</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#555555</color>
+    <color name="input_text">#000000</color>
+    <color name="error">#c33</color>
+    <color name="success">#3c3</color>
+    
+    <!-- Colores para gradientes -->
+    <color name="gradient_start">#667eea</color>
+    <color name="gradient_end">#764ba2</color>
+    <color name="logout_gradient_start">#f093fb</color>
+    <color name="logout_gradient_end">#f5576c</color>
+    
+    <!-- Colores adicionales del diseño web -->
+    <color name="input_border">#e0e0e0</color>
+    <color name="input_focus">#667eea</color>
+    <color name="input_hint">#212121</color>
+    <color name="input_hint_dark">#000000</color>
+    <color name="alert_danger_bg">#fee</color>
+    <color name="alert_success_bg">#efe</color>
 </resources>

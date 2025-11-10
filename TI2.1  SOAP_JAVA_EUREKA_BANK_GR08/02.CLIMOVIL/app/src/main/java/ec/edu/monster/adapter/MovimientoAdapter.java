@@ -38,7 +38,25 @@ public class MovimientoAdapter extends RecyclerView.Adapter<MovimientoAdapter.Vi
         holder.tvTipo.setText(movimiento.getCodigoTipoMovimiento());
         holder.tvDescripcion.setText(movimiento.getTipoDescripcion());
         holder.tvImporte.setText(String.format("$%.2f", movimiento.getImporteMovimiento()));
-        holder.tvCtaRef.setText(movimiento.getCuentaReferencia() != null ? movimiento.getCuentaReferencia() : "N/A");
+        
+        // Determinar la etiqueta y valor según el tipo de movimiento
+        String tipoMov = movimiento.getCodigoTipoMovimiento();
+        String cuentaRef = movimiento.getCuentaReferencia();
+        
+        if (tipoMov != null && (tipoMov.equals("009") || tipoMov.equals("TRA"))) {
+            // Transferencia salida - mostrar cuenta destino
+            holder.tvCtaRefLabel.setText("Cta. Destino");
+            holder.tvCtaRef.setText(cuentaRef != null && !cuentaRef.trim().isEmpty() ? cuentaRef : "N/A");
+        } else if (tipoMov != null && tipoMov.equals("008")) {
+            // Transferencia entrada - mostrar cuenta origen
+            holder.tvCtaRefLabel.setText("Cta. Origen");
+            holder.tvCtaRef.setText(cuentaRef != null && !cuentaRef.trim().isEmpty() ? cuentaRef : "N/A");
+        } else {
+            // Otros tipos de movimiento
+            holder.tvCtaRefLabel.setText("Cta. Ref.");
+            holder.tvCtaRef.setText(cuentaRef != null && !cuentaRef.trim().isEmpty() ? cuentaRef : "N/A");
+        }
+        
         holder.tvSaldo.setText(String.format("$%.2f", movimiento.getSaldo()));
     }
 
@@ -48,7 +66,7 @@ public class MovimientoAdapter extends RecyclerView.Adapter<MovimientoAdapter.Vi
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNro, tvFecha, tvTipo, tvDescripcion, tvImporte, tvCtaRef, tvSaldo;
+        TextView tvNro, tvFecha, tvTipo, tvDescripcion, tvImporte, tvCtaRef, tvSaldo, tvCtaRefLabel;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +76,7 @@ public class MovimientoAdapter extends RecyclerView.Adapter<MovimientoAdapter.Vi
             tvDescripcion = itemView.findViewById(R.id.tvDescripcion);
             tvImporte = itemView.findViewById(R.id.tvImporte);
             tvCtaRef = itemView.findViewById(R.id.tvCtaRef);
+            tvCtaRefLabel = itemView.findViewById(R.id.tvCtaRefLabel);
             tvSaldo = itemView.findViewById(R.id.tvSaldo);
         }
     }

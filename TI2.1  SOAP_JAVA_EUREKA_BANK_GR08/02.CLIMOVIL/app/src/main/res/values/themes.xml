@@ -6,4 +6,18 @@
     </style>
 
     <style name="Theme.CLIMOVIL_EUREKA_GR08" parent="Base.Theme.CLIMOVIL_EUREKA_GR08" />
+    
+    <!-- Estilo personalizado para TextInputLayout con hints oscuros -->
+    <style name="TextInputLayoutDarkHint" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">#FF212121</item>
+        <item name="boxStrokeColor">@color/input_focus</item>
+        <item name="android:textColorHint">#FF212121</item>
+    </style>
+    
+    <!-- Estilo personalizado para TextInputEditText con texto negro -->
+    <style name="TextInputEditTextBlack" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">#FF424242</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>
