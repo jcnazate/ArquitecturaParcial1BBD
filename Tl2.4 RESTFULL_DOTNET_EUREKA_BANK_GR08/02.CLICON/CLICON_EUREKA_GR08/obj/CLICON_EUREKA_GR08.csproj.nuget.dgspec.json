@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\CLICON_EUREKA_GR08.csproj": {}
+    "C:\\Users\\jcnaz\\Documents\\ARQUITECTURA\\UNIDAD 1 -BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\CLICON_EUREKA_GR08.csproj": {}
   },
   "projects": {
-    "D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\CLICON_EUREKA_GR08.csproj": {
+    "C:\\Users\\jcnaz\\Documents\\ARQUITECTURA\\UNIDAD 1 -BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\CLICON_EUREKA_GR08.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\CLICON_EUREKA_GR08.csproj",
+        "projectUniqueName": "C:\\Users\\jcnaz\\Documents\\ARQUITECTURA\\UNIDAD 1 -BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\CLICON_EUREKA_GR08.csproj",
         "projectName": "CLICON_EUREKA_GR08",
-        "projectPath": "D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\CLICON_EUREKA_GR08.csproj",
-        "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
-        "outputPath": "D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\obj\\",
+        "projectPath": "C:\\Users\\jcnaz\\Documents\\ARQUITECTURA\\UNIDAD 1 -BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\CLICON_EUREKA_GR08.csproj",
+        "packagesPath": "C:\\Users\\jcnaz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jcnaz\\Documents\\ARQUITECTURA\\UNIDAD 1 -BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\02.CLICON\\CLICON_EUREKA_GR08\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "UsingMicrosoftNETSdk": false,
@@ -19,7 +19,7 @@
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\johan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jcnaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -46,23 +46,9 @@
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[13.0.3, )"
+              "version": "[13.0.4, )"
             }
           }
-        }
-      },
-      "runtimes": {
-        "win": {
-          "#import": []
-        },
-        "win-arm64": {
-          "#import": []
-        },
-        "win-x64": {
-          "#import": []
-        },
-        "win-x86": {
-          "#import": []
         }
       }
     }

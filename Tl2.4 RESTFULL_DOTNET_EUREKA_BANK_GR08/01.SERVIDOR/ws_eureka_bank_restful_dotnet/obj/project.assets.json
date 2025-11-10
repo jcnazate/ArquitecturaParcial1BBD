@@ -2123,23 +2123,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\johan\\.nuget\\packages\\": {},
+    "C:\\Users\\jcnaz\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_restful_dotnet\\ws_eureka_bank_restful_dotnet.csproj",
+      "projectUniqueName": "C:\\Users\\jcnaz\\Documents\\ARQUITECTURA\\UNIDAD 1 -BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_restful_dotnet\\ws_eureka_bank_restful_dotnet.csproj",
       "projectName": "ws_eureka_bank_restful_dotnet",
-      "projectPath": "D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_restful_dotnet\\ws_eureka_bank_restful_dotnet.csproj",
-      "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
-      "outputPath": "D:\\Espe\\Octavo Semestre\\BDD AR\\ArquitecturaParcial1BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_restful_dotnet\\obj\\",
+      "projectPath": "C:\\Users\\jcnaz\\Documents\\ARQUITECTURA\\UNIDAD 1 -BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_restful_dotnet\\ws_eureka_bank_restful_dotnet.csproj",
+      "packagesPath": "C:\\Users\\jcnaz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jcnaz\\Documents\\ARQUITECTURA\\UNIDAD 1 -BBD\\Tl2.4 RESTFULL_DOTNET_EUREKA_BANK_GR08\\01.SERVIDOR\\ws_eureka_bank_restful_dotnet\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\johan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jcnaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2148,6 +2148,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2200,7 +2201,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
