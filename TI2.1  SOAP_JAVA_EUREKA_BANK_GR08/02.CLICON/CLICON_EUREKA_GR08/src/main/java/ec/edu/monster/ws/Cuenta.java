@@ -7,9 +7,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para cuenta complex type.
+ * <p>Java class for cuenta complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>{@code
  * <complexType name="cuenta">
@@ -43,7 +43,7 @@ public class Cuenta {
     protected String cd;
 
     /**
-     * Obtiene el valor de la propiedad cuenta.
+     * Gets the value of the cuenta property.
      * 
      * @return
      *     possible object is
@@ -55,7 +55,7 @@ public class Cuenta {
     }
 
     /**
-     * Define el valor de la propiedad cuenta.
+     * Sets the value of the cuenta property.
      * 
      * @param value
      *     allowed object is
@@ -67,7 +67,7 @@ public class Cuenta {
     }
 
     /**
-     * Obtiene el valor de la propiedad monto.
+     * Gets the value of the monto property.
      * 
      * @return
      *     possible object is
@@ -79,7 +79,7 @@ public class Cuenta {
     }
 
     /**
-     * Define el valor de la propiedad monto.
+     * Sets the value of the monto property.
      * 
      * @param value
      *     allowed object is
@@ -91,7 +91,7 @@ public class Cuenta {
     }
 
     /**
-     * Obtiene el valor de la propiedad tipo.
+     * Gets the value of the tipo property.
      * 
      * @return
      *     possible object is
@@ -103,7 +103,7 @@ public class Cuenta {
     }
 
     /**
-     * Define el valor de la propiedad tipo.
+     * Sets the value of the tipo property.
      * 
      * @param value
      *     allowed object is
@@ -115,7 +115,7 @@ public class Cuenta {
     }
 
     /**
-     * Obtiene el valor de la propiedad cd.
+     * Gets the value of the cd property.
      * 
      * @return
      *     possible object is
@@ -127,7 +127,7 @@ public class Cuenta {
     }
 
     /**
-     * Define el valor de la propiedad cd.
+     * Sets the value of the cd property.
      * 
      * @param value
      *     allowed object is

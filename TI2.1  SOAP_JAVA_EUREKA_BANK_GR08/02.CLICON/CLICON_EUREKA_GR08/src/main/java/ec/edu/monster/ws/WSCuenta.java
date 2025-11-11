@@ -26,6 +26,21 @@ public interface WSCuenta {
 
     /**
      * 
+     * @param cuenta
+     * @return
+     *     returns ec.edu.monster.ws.CuentaModel
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerCuentaPorNumero", targetNamespace = "http://ws.monster.edu.ec/", className = "ec.edu.monster.ws.ObtenerCuentaPorNumero")
+    @ResponseWrapper(localName = "obtenerCuentaPorNumeroResponse", targetNamespace = "http://ws.monster.edu.ec/", className = "ec.edu.monster.ws.ObtenerCuentaPorNumeroResponse")
+    @Action(input = "http://ws.monster.edu.ec/WSCuenta/obtenerCuentaPorNumeroRequest", output = "http://ws.monster.edu.ec/WSCuenta/obtenerCuentaPorNumeroResponse")
+    public CuentaModel obtenerCuentaPorNumero(
+        @WebParam(name = "cuenta", targetNamespace = "")
+        String cuenta);
+
+    /**
+     * 
      * @param cd
      * @param cuenta
      * @param monto
@@ -47,20 +62,5 @@ public interface WSCuenta {
         String tipo,
         @WebParam(name = "cd", targetNamespace = "")
         String cd);
-
-    /**
-     * 
-     * @param cuenta
-     * @return
-     *     returns ec.edu.monster.ws.CuentaModel
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerCuentaPorNumero", targetNamespace = "http://ws.monster.edu.ec/", className = "ec.edu.monster.ws.ObtenerCuentaPorNumero")
-    @ResponseWrapper(localName = "obtenerCuentaPorNumeroResponse", targetNamespace = "http://ws.monster.edu.ec/", className = "ec.edu.monster.ws.ObtenerCuentaPorNumeroResponse")
-    @Action(input = "http://ws.monster.edu.ec/WSCuenta/obtenerCuentaPorNumeroRequest", output = "http://ws.monster.edu.ec/WSCuenta/obtenerCuentaPorNumeroResponse")
-    public CuentaModel obtenerCuentaPorNumero(
-        @WebParam(name = "cuenta", targetNamespace = "")
-        String cuenta);
 
 }

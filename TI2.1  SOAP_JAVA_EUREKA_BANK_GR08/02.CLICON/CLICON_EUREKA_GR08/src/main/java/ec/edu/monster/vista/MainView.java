@@ -76,18 +76,20 @@ public class MainView {
         }
     }
 
-    private static void realizarDeposito() {
-        System.out.print("Ingrese el número de cuenta: ");
-        String cuenta = scanner.nextLine();
-        System.out.print("Ingrese el monto a depositar: ");
-        String monto = scanner.nextLine();
+private static void realizarDeposito() {
+    System.out.print("Ingrese el número de cuenta: ");
+    String cuenta = scanner.nextLine();
+    System.out.print("Ingrese el monto a depositar: ");
+    String monto = scanner.nextLine();
 
-        if (mainController.realizarDeposito(cuenta, monto, "DEP", null)) {
-            System.out.println("Depósito realizado con éxito.");
-        } else {
-            System.out.println("Error al realizar el depósito.");
-        }
+    if (mainController.realizarDeposito(cuenta, monto)) {
+        System.out.println("Depósito realizado con éxito.");
+    } else {
+        System.out.println("Error al realizar el depósito.");
     }
+}
+
+
 
     private static void realizarRetiro() {
         System.out.print("Ingrese el número de cuenta: ");
@@ -102,20 +104,21 @@ public class MainView {
         }
     }
 
-    private static void realizarTransferencia() {
-        System.out.print("Ingrese el número de cuenta origen: ");
-        String cuentaOrigen = scanner.nextLine();
-        System.out.print("Ingrese el número de cuenta destino: ");
-        String cuentaDestino = scanner.nextLine();
-        System.out.print("Ingrese el monto a transferir: ");
-        String monto = scanner.nextLine();
 
-        if (mainController.realizarTransferencia(cuentaOrigen, cuentaDestino, monto)) {
-            System.out.println("Transferencia realizada con éxito.");
-        } else {
-            System.out.println("Error al realizar la transferencia.");
-        }
+private static void realizarTransferencia() {
+    System.out.print("Ingrese el número de cuenta origen: ");
+    String cuentaOrigen = scanner.nextLine();
+    System.out.print("Ingrese el número de cuenta destino: ");
+    String cuentaDestino = scanner.nextLine();
+    System.out.print("Ingrese el monto a transferir: ");
+    String monto = scanner.nextLine();
+
+    if (mainController.realizarTransferencia(cuentaOrigen, cuentaDestino, monto)) {
+        System.out.println("Transferencia realizada con éxito.");
+    } else {
+        System.out.println("Error al realizar la transferencia.");
     }
+}
 
     private static void verMovimientos() {
         System.out.print("Ingrese el número de cuenta: ");

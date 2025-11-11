@@ -65,13 +65,17 @@ namespace CLICON_EUREKA_GR08.ec.edu.monster.controller
 
         public bool RealizarTransferencia(string cuentaOrigen, string cuentaDestino, string monto)
         {
-            // Seguir la misma lógica del cliente Java: RET + TRA
-            bool retiroExitoso = RealizarRetiro(cuentaOrigen, monto);
-            if (retiroExitoso)
-            {
-                return RealizarDeposito(cuentaDestino, monto, "TRA", cuentaOrigen);
-            }
-            return false;
+            // IMPORTANTE:
+            // Llamamos al WS indicando:
+            //  - cuentaOrigen como cuenta principal
+            //  - "TRA" como tipo de operación
+            //  - cuentaDestino como cuenta de referencia
+            //
+            // El WS debe:
+            //  - Debitar cuentaOrigen
+            //  - Acreditar cuentaDestino
+            //  - Registrar 008/009 según su lógica interna
+            return RealizarDeposito(cuentaOrigen, monto, "TRA", cuentaDestino);
         }
 
         public string VerMovimientos(string cuenta)

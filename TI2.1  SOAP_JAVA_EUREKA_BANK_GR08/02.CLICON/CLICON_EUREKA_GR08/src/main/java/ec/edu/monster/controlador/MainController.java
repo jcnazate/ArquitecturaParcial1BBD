@@ -37,21 +37,30 @@ public class MainController {
         usuarioActual = null;
     }
 
-    public boolean realizarDeposito(String cuenta, String monto, String tipo, String cd) {
-        return cuentaService.realizarDeposito(cuenta, monto, tipo, cd);
-    }
+// DEPÓSITO NORMAL (código 003)
+public boolean realizarDeposito(String cuenta, String monto) {
+    // cd = null porque no hay cuenta de referencia
+    return cuentaService.realizarDeposito(cuenta, monto, "DEP", null);
+}
 
-    public boolean realizarRetiro(String cuenta, String monto) {
-        return cuentaService.realizarDeposito(cuenta, monto, "RET", null);
-    }
+// RETIRO NORMAL (código 004)
+public boolean realizarRetiro(String cuenta, String monto) {
+    // egreso desde la misma cuenta
+    return cuentaService.realizarDeposito(cuenta, monto, "RET", null);
+}
 
-    public boolean realizarTransferencia(String cuentaOrigen, String cuentaDestino, String monto) {
-        boolean retiroExitoso = realizarRetiro(cuentaOrigen, monto);
-        if (retiroExitoso) {
-            return realizarDeposito(cuentaDestino, monto, "TRA", cuentaOrigen);
-        }
-        return false;
-    }
+// TRANSFERENCIA ENTRE CUENTAS
+public boolean realizarTransferencia(String cuentaOrigen, String cuentaDestino, String monto) {
+    // SOLO UNA LLAMADA
+    // El WS tipo "TRA" debe:
+    //  - Debitar cuentaOrigen
+    //  - Acreditar cuentaDestino
+    //  - Registrar 008 en origen y 009 en destino
+    return cuentaService.realizarDeposito(cuentaOrigen, monto, "TRA", cuentaDestino);
+}
+
+  
+
 
     public String verMovimientos(String cuenta) {
         try {

@@ -7,9 +7,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para movimientoModel complex type.
+ * <p>Java class for movimientoModel complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>{@code
  * <complexType name="movimientoModel">
@@ -58,7 +58,7 @@ public class MovimientoModel {
     protected String tipoDescripcion;
 
     /**
-     * Obtiene el valor de la propiedad codigoCuenta.
+     * Gets the value of the codigoCuenta property.
      * 
      * @return
      *     possible object is
@@ -70,7 +70,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Define el valor de la propiedad codigoCuenta.
+     * Sets the value of the codigoCuenta property.
      * 
      * @param value
      *     allowed object is
@@ -82,7 +82,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoEmpleado.
+     * Gets the value of the codigoEmpleado property.
      * 
      * @return
      *     possible object is
@@ -94,7 +94,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Define el valor de la propiedad codigoEmpleado.
+     * Sets the value of the codigoEmpleado property.
      * 
      * @param value
      *     allowed object is
@@ -106,7 +106,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Obtiene el valor de la propiedad codigoTipoMovimiento.
+     * Gets the value of the codigoTipoMovimiento property.
      * 
      * @return
      *     possible object is
@@ -118,7 +118,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Define el valor de la propiedad codigoTipoMovimiento.
+     * Sets the value of the codigoTipoMovimiento property.
      * 
      * @param value
      *     allowed object is
@@ -130,7 +130,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Obtiene el valor de la propiedad cuentaReferencia.
+     * Gets the value of the cuentaReferencia property.
      * 
      * @return
      *     possible object is
@@ -142,7 +142,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Define el valor de la propiedad cuentaReferencia.
+     * Sets the value of the cuentaReferencia property.
      * 
      * @param value
      *     allowed object is
@@ -154,7 +154,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Obtiene el valor de la propiedad fechaMovimiento.
+     * Gets the value of the fechaMovimiento property.
      * 
      * @return
      *     possible object is
@@ -166,7 +166,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Define el valor de la propiedad fechaMovimiento.
+     * Sets the value of the fechaMovimiento property.
      * 
      * @param value
      *     allowed object is
@@ -178,7 +178,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Obtiene el valor de la propiedad importeMovimiento.
+     * Gets the value of the importeMovimiento property.
      * 
      */
     public double getImporteMovimiento() {
@@ -186,7 +186,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Define el valor de la propiedad importeMovimiento.
+     * Sets the value of the importeMovimiento property.
      * 
      */
     public void setImporteMovimiento(double value) {
@@ -194,7 +194,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Obtiene el valor de la propiedad numeroMovimiento.
+     * Gets the value of the numeroMovimiento property.
      * 
      */
     public int getNumeroMovimiento() {
@@ -202,7 +202,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Define el valor de la propiedad numeroMovimiento.
+     * Sets the value of the numeroMovimiento property.
      * 
      */
     public void setNumeroMovimiento(int value) {
@@ -210,7 +210,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Obtiene el valor de la propiedad saldo.
+     * Gets the value of the saldo property.
      * 
      */
     public double getSaldo() {
@@ -218,7 +218,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Define el valor de la propiedad saldo.
+     * Sets the value of the saldo property.
      * 
      */
     public void setSaldo(double value) {
@@ -226,7 +226,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Obtiene el valor de la propiedad tipoDescripcion.
+     * Gets the value of the tipoDescripcion property.
      * 
      * @return
      *     possible object is
@@ -238,7 +238,7 @@ public class MovimientoModel {
     }
 
     /**
-     * Define el valor de la propiedad tipoDescripcion.
+     * Sets the value of the tipoDescripcion property.
      * 
      * @param value
      *     allowed object is
