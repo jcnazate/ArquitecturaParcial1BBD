@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ws_eureka_bank_soap_dotnet.ec.edu.monster.model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ws_eureka_bank_soap_dotnet.ec.edu.monster.model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfMovimientoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MovimientoModel" nillable="true" type="tns:MovimientoModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMovimientoModel" nillable="true" type="tns:ArrayOfMovimientoModel" />
+  <xs:complexType name="MovimientoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoCuenta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoEmpleado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoTipoMovimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CuentaReferencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaMovimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaMovimientoDt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ImporteMovimiento" type="xs:double" />
+      <xs:element minOccurs="0" name="NumeroMovimiento" type="xs:int" />
+      <xs:element minOccurs="0" name="Saldo" type="xs:double" />
+      <xs:element minOccurs="0" name="TipoDescripcion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MovimientoModel" nillable="true" type="tns:MovimientoModel" />
+</xs:schema>
