@@ -19,7 +19,7 @@ public class SoapHelper {
     // ===== Config WCF (.NET) =====
     private static final String NAMESPACE = "http://tempuri.org/";
     private static final String BASE_URL =
-            "http://10.0.2.2:8733/Design_Time_Addresses/ws_eureka_bank_soap_dotnet.ec.edu.monster.contracts/";
+            "http://192.168.1.25:8733/Design_Time_Addresses/ws_eureka_bank_soap_dotnet.ec.edu.monster.contracts/";
 
     // Endpoints (SIN /mex y SIN ?wsdl)
     private static final String CUENTA_URL     = BASE_URL + "CuentaServicio/";

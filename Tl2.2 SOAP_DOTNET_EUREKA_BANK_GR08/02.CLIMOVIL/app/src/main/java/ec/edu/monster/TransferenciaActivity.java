@@ -59,13 +59,12 @@ public class TransferenciaActivity extends AppCompatActivity {
             String cuentaDestino = params[1];
             String monto = params[2];
 
-            // Primero retiro de la cuenta origen
-            boolean retiroExitoso = cuentaService.realizarDeposito(cuentaOrigen, monto, "RET", null);
-            if (retiroExitoso) {
-                // Luego depósito en la cuenta destino
-                return cuentaService.realizarDeposito(cuentaDestino, monto, "TRA", cuentaOrigen);
-            }
-            return false;
+            // El servidor maneja la transferencia completa en una sola llamada:
+            // - Resta el monto de la cuenta origen
+            // - Suma el monto a la cuenta destino
+            // - Registra movimientos en ambas cuentas
+            // Todo en una transacción atómica
+            return cuentaService.realizarDeposito(cuentaOrigen, monto, "TRA", cuentaDestino);
         }
 
         @Override
