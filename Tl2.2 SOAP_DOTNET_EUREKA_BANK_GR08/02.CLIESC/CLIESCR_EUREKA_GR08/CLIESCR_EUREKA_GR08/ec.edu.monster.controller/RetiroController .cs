@@ -47,7 +47,7 @@ namespace CLIESC_EUREKA_GR08.ec.edu.monster.controller
             }
 
             // Formato para el servicio: siempre con punto decimal
-            string montoFormateado = monto.ToString("0.00", CultureInfo.InvariantCulture);
+            string montoFormateado = monto.ToString("0.00", CultureInfo.CreateSpecificCulture("es-EC"));
 
             bool ok;
             try

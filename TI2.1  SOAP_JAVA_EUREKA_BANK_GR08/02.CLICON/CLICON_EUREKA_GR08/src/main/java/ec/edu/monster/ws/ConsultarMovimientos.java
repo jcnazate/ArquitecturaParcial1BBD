@@ -7,9 +7,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for consultarMovimientos complex type.
+ * <p>Clase Java para consultarMovimientos complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>{@code
  * <complexType name="consultarMovimientos">
@@ -34,7 +34,7 @@ public class ConsultarMovimientos {
     protected String numcuenta;
 
     /**
-     * Gets the value of the numcuenta property.
+     * Obtiene el valor de la propiedad numcuenta.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class ConsultarMovimientos {
     }
 
     /**
-     * Sets the value of the numcuenta property.
+     * Define el valor de la propiedad numcuenta.
      * 
      * @param value
      *     allowed object is

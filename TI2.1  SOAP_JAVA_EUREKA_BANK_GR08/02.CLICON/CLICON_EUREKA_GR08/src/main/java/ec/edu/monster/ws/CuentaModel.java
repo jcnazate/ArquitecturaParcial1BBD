@@ -7,9 +7,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for cuentaModel complex type.
+ * <p>Clase Java para cuentaModel complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>{@code
  * <complexType name="cuentaModel">
@@ -61,7 +61,7 @@ public class CuentaModel {
     protected String vchCuenEstado;
 
     /**
-     * Gets the value of the chrClieCodigo property.
+     * Obtiene el valor de la propiedad chrClieCodigo.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the chrClieCodigo property.
+     * Define el valor de la propiedad chrClieCodigo.
      * 
      * @param value
      *     allowed object is
@@ -85,7 +85,7 @@ public class CuentaModel {
     }
 
     /**
-     * Gets the value of the chrCuenClave property.
+     * Obtiene el valor de la propiedad chrCuenClave.
      * 
      * @return
      *     possible object is
@@ -97,7 +97,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the chrCuenClave property.
+     * Define el valor de la propiedad chrCuenClave.
      * 
      * @param value
      *     allowed object is
@@ -109,7 +109,7 @@ public class CuentaModel {
     }
 
     /**
-     * Gets the value of the chrCuenCodigo property.
+     * Obtiene el valor de la propiedad chrCuenCodigo.
      * 
      * @return
      *     possible object is
@@ -121,7 +121,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the chrCuenCodigo property.
+     * Define el valor de la propiedad chrCuenCodigo.
      * 
      * @param value
      *     allowed object is
@@ -133,7 +133,7 @@ public class CuentaModel {
     }
 
     /**
-     * Gets the value of the chrEmplCreaCuenta property.
+     * Obtiene el valor de la propiedad chrEmplCreaCuenta.
      * 
      * @return
      *     possible object is
@@ -145,7 +145,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the chrEmplCreaCuenta property.
+     * Define el valor de la propiedad chrEmplCreaCuenta.
      * 
      * @param value
      *     allowed object is
@@ -157,7 +157,7 @@ public class CuentaModel {
     }
 
     /**
-     * Gets the value of the chrMoneCodigo property.
+     * Obtiene el valor de la propiedad chrMoneCodigo.
      * 
      * @return
      *     possible object is
@@ -169,7 +169,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the chrMoneCodigo property.
+     * Define el valor de la propiedad chrMoneCodigo.
      * 
      * @param value
      *     allowed object is
@@ -181,7 +181,7 @@ public class CuentaModel {
     }
 
     /**
-     * Gets the value of the chrSucucodigo property.
+     * Obtiene el valor de la propiedad chrSucucodigo.
      * 
      * @return
      *     possible object is
@@ -193,7 +193,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the chrSucucodigo property.
+     * Define el valor de la propiedad chrSucucodigo.
      * 
      * @param value
      *     allowed object is
@@ -205,7 +205,7 @@ public class CuentaModel {
     }
 
     /**
-     * Gets the value of the decCuenSaldo property.
+     * Obtiene el valor de la propiedad decCuenSaldo.
      * 
      */
     public double getDecCuenSaldo() {
@@ -213,7 +213,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the decCuenSaldo property.
+     * Define el valor de la propiedad decCuenSaldo.
      * 
      */
     public void setDecCuenSaldo(double value) {
@@ -221,7 +221,7 @@ public class CuentaModel {
     }
 
     /**
-     * Gets the value of the dttCuenFechaCreacion property.
+     * Obtiene el valor de la propiedad dttCuenFechaCreacion.
      * 
      * @return
      *     possible object is
@@ -233,7 +233,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the dttCuenFechaCreacion property.
+     * Define el valor de la propiedad dttCuenFechaCreacion.
      * 
      * @param value
      *     allowed object is
@@ -245,7 +245,7 @@ public class CuentaModel {
     }
 
     /**
-     * Gets the value of the intCuenContMov property.
+     * Obtiene el valor de la propiedad intCuenContMov.
      * 
      */
     public int getIntCuenContMov() {
@@ -253,7 +253,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the intCuenContMov property.
+     * Define el valor de la propiedad intCuenContMov.
      * 
      */
     public void setIntCuenContMov(int value) {
@@ -261,7 +261,7 @@ public class CuentaModel {
     }
 
     /**
-     * Gets the value of the vchCuenEstado property.
+     * Obtiene el valor de la propiedad vchCuenEstado.
      * 
      * @return
      *     possible object is
@@ -273,7 +273,7 @@ public class CuentaModel {
     }
 
     /**
-     * Sets the value of the vchCuenEstado property.
+     * Define el valor de la propiedad vchCuenEstado.
      * 
      * @param value
      *     allowed object is

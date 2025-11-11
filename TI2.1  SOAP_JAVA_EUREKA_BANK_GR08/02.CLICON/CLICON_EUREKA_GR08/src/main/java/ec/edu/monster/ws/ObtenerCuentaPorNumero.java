@@ -7,9 +7,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for obtenerCuentaPorNumero complex type.
+ * <p>Clase Java para obtenerCuentaPorNumero complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>{@code
  * <complexType name="obtenerCuentaPorNumero">
@@ -34,7 +34,7 @@ public class ObtenerCuentaPorNumero {
     protected String cuenta;
 
     /**
-     * Gets the value of the cuenta property.
+     * Obtiene el valor de la propiedad cuenta.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class ObtenerCuentaPorNumero {
     }
 
     /**
-     * Sets the value of the cuenta property.
+     * Define el valor de la propiedad cuenta.
      * 
      * @param value
      *     allowed object is
