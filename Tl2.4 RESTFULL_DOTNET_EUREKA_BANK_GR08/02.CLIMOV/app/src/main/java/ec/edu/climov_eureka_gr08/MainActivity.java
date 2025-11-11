@@ -3,7 +3,7 @@ package ec.edu.climov_eureka_gr08;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,14 +21,16 @@ public class MainActivity extends AppCompatActivity {
         username = getIntent().getStringExtra("username");
 
         TextView tvWelcome = findViewById(R.id.tvWelcome);
+        TextView tvUsername = findViewById(R.id.tvUsername);
         CardView cardDeposito = findViewById(R.id.cardDeposito);
         CardView cardRetiro = findViewById(R.id.cardRetiro);
         CardView cardTransferencia = findViewById(R.id.cardTransferencia);
         CardView cardMovimientos = findViewById(R.id.cardMovimientos);
         CardView cardDatosCuenta = findViewById(R.id.cardDatosCuenta);
-        ImageButton btnLogout = findViewById(R.id.btnLogout);
+        Button btnLogout = findViewById(R.id.btnLogout);
 
         tvWelcome.setText("Bienvenido, " + username);
+        tvUsername.setText(username);
 
         cardDeposito.setOnClickListener(v -> {
             Intent intent = new Intent(this, DepositoActivity.class);

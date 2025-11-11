@@ -2,10 +2,10 @@ package ec.edu.climov_eureka_gr08.util;
 
 public class ApiConfig {
     // URL base del servidor RESTful
-    // Para desarrollo local con emulador Android: https://10.0.2.2:7222/api/
-    // Para dispositivo físico: https://IP_DE_TU_PC:7222/api/
+    // Para desarrollo local con emulador Android: http://10.0.2.2:5046/api/
+    // Para dispositivo físico: http://192.168.1.25:5046/api/
     // NOTA: 10.0.2.2 es la IP especial del emulador que apunta a localhost de la PC
-    public static final String BASE_URL = "https://10.0.2.2:7222/api/";
+    public static final String BASE_URL = "http://192.168.1.25:5046/api/";
 
     // Endpoints
     public static final String LOGIN = "Login";
