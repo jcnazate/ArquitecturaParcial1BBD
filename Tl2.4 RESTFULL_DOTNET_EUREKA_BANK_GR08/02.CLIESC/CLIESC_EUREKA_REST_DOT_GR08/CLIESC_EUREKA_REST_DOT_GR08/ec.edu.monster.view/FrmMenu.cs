@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 {
-    public partial class FrmMenu : Form
+   public partial class FrmMenu : Form
     {
         private readonly string _usuario;
 
@@ -44,28 +44,67 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
         // ====== BOTONES GRADIENTE ======
         private void GradientButton_Paint(object sender, PaintEventArgs e)
         {
-            var btn = (Button)sender;
-            var g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            var btn = sender as Button;
+            if (btn == null) return;
 
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             var rect = new Rectangle(0, 0, btn.Width, btn.Height);
 
+            // Fondo con esquinas suaves (opcionalmente puedes redondear más)
             using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-                       rect,
-                       Color.FromArgb(118, 75, 162),   // morado
-                       Color.FromArgb(102, 126, 234),  // azul
-                       0f))
+                rect,
+                Color.FromArgb(116, 142, 255),
+                Color.FromArgb(96, 123, 240),
+                0f))
+            using (var path = new System.Drawing.Drawing2D.GraphicsPath())
             {
-                g.FillRectangle(brush, rect);
+                int radius = 26;
+                int d = radius * 2;
+                path.AddArc(0, 0, d, d, 180, 90);
+                path.AddArc(rect.Width - d, 0, d, d, 270, 90);
+                path.AddArc(rect.Width - d, rect.Height - d, d, d, 0, 90);
+                path.AddArc(0, rect.Height - d, d, d, 90, 90);
+                path.CloseFigure();
+
+                e.Graphics.FillPath(brush, path);
             }
 
-            TextRenderer.DrawText(
-                g,
-                btn.Text,
-                btn.Font,
-                rect,
-                Color.White,
-                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+            // Icono
+            string icon = btn.Tag as string ?? "";
+            if (!string.IsNullOrEmpty(icon))
+            {
+                using (var iconFont = new Font("Segoe UI Emoji", 24F, FontStyle.Regular))
+                {
+                    var iconSize = TextRenderer.MeasureText(icon, iconFont);
+                    var iconRect = new Rectangle(
+                        (btn.Width - iconSize.Width) / 2,
+                        18,
+                        iconSize.Width,
+                        iconSize.Height);
+
+                    TextRenderer.DrawText(
+                        e.Graphics,
+                        icon,
+                        iconFont,
+                        iconRect,
+                        Color.White,
+                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+                }
+            }
+
+            // Texto (título debajo del icono)
+            using (var textFont = new Font("Segoe UI Semibold", 11F, FontStyle.Bold))
+            {
+                var textRect = new Rectangle(8, 80, btn.Width - 16, btn.Height - 100);
+
+                TextRenderer.DrawText(
+                    e.Graphics,
+                    btn.Text,
+                    textFont,
+                    textRect,
+                    Color.White,
+                    TextFormatFlags.HorizontalCenter | TextFormatFlags.Top);
+            }
         }
 
         private System.Drawing.Drawing2D.GraphicsPath RoundedRect(Rectangle bounds, int radius)
@@ -83,20 +122,24 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
         // ====== CLICKS (aquí luego abres tus forms reales) ======
         private void btnDeposito_Click(object sender, EventArgs e)
         {
-               using (var frm = new FrmDeposito())
+
+            using (var frm = new FrmDeposito())
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog(this);
             }
+
         }
 
         private void btnRetiro_Click(object sender, EventArgs e)
         {
-                 using (var frm = new FrmRetiro())
+
+            using (var frm = new FrmRetiro())
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog(this);
             }
+
         }
 
         private void btnTransferencia_Click(object sender, EventArgs e)
@@ -110,11 +153,12 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 
         private void btnDatos_Click(object sender, EventArgs e)
         {
-                   using (var frm = new FrmDatos())
+            using (var frm = new FrmDatos())
             {
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog(this);
             }
+
         }
 
         private void btnMovimiento_Click(object sender, EventArgs e)
@@ -127,3 +171,4 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
         }
     }
 }
+

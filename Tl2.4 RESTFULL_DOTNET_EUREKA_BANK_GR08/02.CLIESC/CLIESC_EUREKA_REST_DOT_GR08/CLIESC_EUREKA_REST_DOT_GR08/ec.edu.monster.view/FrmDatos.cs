@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.controller;
 namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 {
-    public partial class FrmDatos : Form
+ public partial class FrmDatos : Form
     {
         public event EventHandler ConsultarClicked;
         public event EventHandler VolverMenuClicked;
@@ -106,18 +106,27 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
         {
             var g = e.Graphics;
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            var rect = new Rectangle(0, 0, panelInfo.Width - 1, panelInfo.Height - 1);
-            int radius = 30;
 
-            using (var path = RoundedRect(rect, radius))
+            // Rectángulo completo del panel
+            var rect = new Rectangle(0, 0, panelInfo.Width - 1, panelInfo.Height - 1);
+
+            // Fondo degradado en TODO el panel
             using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
                        rect,
-                       Color.FromArgb(118, 75, 162),
-                       Color.FromArgb(102, 126, 234),
-                       0f))
-            using (var pen = new Pen(Color.Transparent, 1))
+                       Color.FromArgb(118, 75, 162),   // morado
+                       Color.FromArgb(102, 126, 234),  // azul
+                       System.Drawing.Drawing2D.LinearGradientMode.Horizontal))
             {
-                g.FillPath(brush, path);
+                g.FillRectangle(brush, rect);
+            }
+
+            // Bordes redondeados sólo como contorno visual
+            int radius = 30;
+            radius = Math.Min(radius, Math.Min(rect.Width / 2, rect.Height / 2));
+
+            using (var path = RoundedRect(rect, radius))
+            using (var pen = new Pen(Color.FromArgb(118, 75, 162), 1))
+            {
                 g.DrawPath(pen, path);
             }
         }
@@ -185,3 +194,4 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
         }
     }
 }
+

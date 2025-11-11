@@ -118,7 +118,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 
             // ===== BOTONES CARD (alineados con espacio correcto) =====
             int cardWidth = 150;
-            int cardHeight = 130;
+            int cardHeight = 180;
             int firstLeft = 30;
             int topButtons = 150;
             int spacing = 40; // espacio horizontal
@@ -127,6 +127,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.btnDeposito.Size = new Size(cardWidth, cardHeight);
             this.btnDeposito.Location = new Point(firstLeft, topButtons);
             this.btnDeposito.Text = "Depósito";
+            this.btnDeposito.Tag = "⬇";
             this.btnDeposito.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             this.btnDeposito.FlatStyle = FlatStyle.Flat;
             this.btnDeposito.FlatAppearance.BorderSize = 0;
@@ -138,6 +139,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.btnRetiro.Size = new Size(cardWidth, cardHeight);
             this.btnRetiro.Location = new Point(firstLeft + (cardWidth + spacing) * 1, topButtons);
             this.btnRetiro.Text = "Retiro";
+            this.btnRetiro.Tag = "⬆";
             this.btnRetiro.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             this.btnRetiro.FlatStyle = FlatStyle.Flat;
             this.btnRetiro.FlatAppearance.BorderSize = 0;
@@ -149,6 +151,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.btnTransferencia.Size = new Size(cardWidth, cardHeight);
             this.btnTransferencia.Location = new Point(firstLeft + (cardWidth + spacing) * 2, topButtons);
             this.btnTransferencia.Text = "Transferencia";
+            this.btnTransferencia.Tag = "⇄";
             this.btnTransferencia.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             this.btnTransferencia.FlatStyle = FlatStyle.Flat;
             this.btnTransferencia.FlatAppearance.BorderSize = 0;
@@ -160,6 +163,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.btnDatos.Size = new Size(cardWidth, cardHeight);
             this.btnDatos.Location = new Point(firstLeft + (cardWidth + spacing) * 3, topButtons);
             this.btnDatos.Text = "Datos de Cuenta";
+            this.btnDatos.Tag = "ⓘ";
             this.btnDatos.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             this.btnDatos.FlatStyle = FlatStyle.Flat;
             this.btnDatos.FlatAppearance.BorderSize = 0;
@@ -171,6 +175,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.btnMovimiento.Size = new Size(cardWidth, cardHeight);
             this.btnMovimiento.Location = new Point(firstLeft + (cardWidth + spacing) * 4, topButtons);
             this.btnMovimiento.Text = "Movimientos";
+            this.btnMovimiento.Tag = "☰";
             this.btnMovimiento.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             this.btnMovimiento.FlatStyle = FlatStyle.Flat;
             this.btnMovimiento.FlatAppearance.BorderSize = 0;

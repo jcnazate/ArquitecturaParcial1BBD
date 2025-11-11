@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.controller
 {
-    public class MovimientosController
+    public class MovimientoController
     {
         private readonly FrmMovimiento _view;
         private readonly HttpClient _httpClient;
         private readonly string _apiBaseUrl;
 
-        public MovimientosController(FrmMovimiento view)
+        public MovimientoController(FrmMovimiento view)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _httpClient = ApiClient.Client;
@@ -70,7 +70,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.controller
                         _view.Saldo = cuentaModel.DecCuenSaldo.ToString("N2");
                 }
 
-                // 3) Llenar UI
+                // 3) Sin movimientos
                 if (movimientos.Count == 0)
                 {
                     _view.AgregarMovimientos(new List<MovimientosItem>());
@@ -79,6 +79,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.controller
                     return;
                 }
 
+                // 4) Mapear a ítems visuales
                 var items = new List<MovimientosItem>();
 
                 foreach (var mov in movimientos)
@@ -87,23 +88,37 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.controller
 
                     item.Cuenta = cuenta;
                     item.Fecha = mov.FechaMovimientoDt?.ToString("dd/MM/yyyy HH:mm")
-                                       ?? mov.FechaMovimiento ?? "";
+                                 ?? mov.FechaMovimiento
+                                 ?? string.Empty;
+
+                    // Mostrar algo legible en columna "Movimiento" y "Tipo"
                     item.Movimiento = mov.TipoDescripcion ?? mov.CodigoTipoMovimiento ?? "";
                     item.Tipo = mov.CodigoTipoMovimiento ?? "";
 
-                    // Deducción de Acción (Débito / Crédito) sin usar Contains con 2 parámetros
-                    var desc = mov.TipoDescripcion ?? "";
-                    bool esRetiro = desc.IndexOf("retiro", StringComparison.OrdinalIgnoreCase) >= 0;
-                    item.Accion = esRetiro ? "Débito" : "Crédito";
+                    // === NUEVO: calcular Crédito / Débito consistente ===
+                    string accion = CalcularAccion(mov);
+                    item.Accion = accion;
 
                     item.Importe = mov.ImporteMovimiento.ToString("N2");
                     item.SaldoActual = mov.Saldo.ToString("N2");
 
                     // Colorear según acción
-                    if (esRetiro || mov.ImporteMovimiento < 0)
-                        item.MarcarComoDebito();
+                    if (accion == "Débito")
+                    {
+                        item.MarcarComoDebito();  // rojo
+                    }
+                    else if (accion == "Crédito")
+                    {
+                        item.MarcarComoCredito(); // verde
+                    }
                     else
-                        item.MarcarComoCredito();
+                    {
+                        // fallback: si viene raro, decide por signo
+                        if (mov.ImporteMovimiento < 0)
+                            item.MarcarComoDebito();
+                        else
+                            item.MarcarComoCredito();
+                    }
 
                     items.Add(item);
                 }
@@ -115,6 +130,70 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.controller
             {
                 _view.MostrarMensaje("Error al obtener los movimientos: " + ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Determina si el movimiento es Crédito o Débito para la cuenta consultada,
+        /// usando CodigoTipoMovimiento y/o TipoDescripcion.
+        /// </summary>
+        private static string CalcularAccion(MovimientoModel mov)
+        {
+            if (mov == null)
+                return "Crédito";
+
+            string cod = mov.CodigoTipoMovimiento?.Trim();
+            string desc = mov.TipoDescripcion?.Trim() ?? "";
+            string descUp = desc.ToUpperInvariant();
+
+            // 1) Si hay código, mandan los mismos que en SOAP:
+            // 001: Apertura (Crédito inicial)
+            // 003: Depósito (Crédito)
+            // 004: Retiro (Débito)
+            // 008: Transferencia enviada (Débito)
+            // 009: Transferencia recibida (Crédito)
+            if (!string.IsNullOrEmpty(cod))
+            {
+                switch (cod)
+                {
+                    case "001":
+                    case "003":
+                    case "009":
+                        return "Crédito";
+                    case "004":
+                    case "008":
+                        return "Débito";
+                }
+            }
+
+            // 2) Si solo tenemos descripción textual, usamos palabras clave
+
+            if (descUp.Contains("APERTURA"))
+                return "Crédito";
+
+            if (descUp.Contains("DEPOSITO") || descUp.Contains("DEPÓSITO"))
+                return "Crédito";
+
+            if (descUp.Contains("RETIRO"))
+                return "Débito";
+
+            if (descUp.Contains("CRÉDITO") || descUp.Contains("CREDITO") || descUp.Contains("ABONO"))
+                return "Crédito";
+
+            if (descUp.Contains("DÉBITO") || descUp.Contains("DEBITO"))
+                return "Débito";
+
+            if (descUp.Contains("TRANSFER"))
+            {
+                // Si descripción indica recibida/entrante → crédito
+                if (descUp.Contains("RECIB") || descUp.Contains("ENTR") || descUp.Contains("A FAVOR"))
+                    return "Crédito";
+
+                // En cualquier otro caso de "TRANSFERENCIA" lo tratamos como salida de esta cuenta
+                return "Débito";
+            }
+
+            // 3) Fallback por signo
+            return mov.ImporteMovimiento >= 0 ? "Crédito" : "Débito";
         }
     }
 }

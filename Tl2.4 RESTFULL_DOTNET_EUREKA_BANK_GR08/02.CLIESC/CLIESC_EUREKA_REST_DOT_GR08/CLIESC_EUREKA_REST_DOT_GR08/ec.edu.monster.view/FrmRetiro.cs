@@ -5,7 +5,7 @@ using CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.controller;
 
 namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 {
-    public partial class FrmRetiro : Form
+  public partial class FrmRetiro : Form
     {
         public event EventHandler RetirarClicked;
         public event EventHandler VolverMenuClicked;
@@ -153,3 +153,4 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
         }
     }
 }
+

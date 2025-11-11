@@ -11,6 +11,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08
         private Panel panelLeft;
         private PictureBox pictureBoxSully;
         private Panel panelCard;
+        private Label lblIconBank;
         private Label lblTitulo;
         private Label lblSubTitulo;
         private Label lblUsuarioTitle;
@@ -34,6 +35,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08
             this.panelLeft = new Panel();
             this.pictureBoxSully = new PictureBox();
             this.panelCard = new Panel();
+            this.lblIconBank = new Label();
             this.lblTitulo = new Label();
             this.lblSubTitulo = new Label();
             this.lblUsuarioTitle = new Label();
@@ -80,20 +82,28 @@ namespace CLIESC_EUREKA_REST_DOT_GR08
             this.panelCard.BackColor = Color.White;
             this.panelCard.BorderStyle = BorderStyle.None;
             this.panelCard.Paint += new PaintEventHandler(this.PanelCard_Paint);
+            // ===== LOGO / ÍCONO BANCO (EMOJI) =====
+                    this.lblIconBank.AutoSize = true;
+                    this.lblIconBank.Font = new Font("Segoe UI Emoji", 34F, FontStyle.Regular);
+                    this.lblIconBank.Text = "🏦";
+                    this.lblIconBank.BackColor = Color.Transparent;
+                    this.lblIconBank.TextAlign = ContentAlignment.MiddleCenter;
+                    this.lblIconBank.Width = this.panelCard.Width;
+                    this.lblIconBank.Location = new Point(180, 50); // centrado horizontalmente
 
             // ===== TÍTULO =====
             this.lblTitulo.Text = "Eureka Bank";
             this.lblTitulo.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             this.lblTitulo.ForeColor = Color.FromArgb(40, 40, 40);
             this.lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            this.lblTitulo.SetBounds(0, 80, this.panelCard.Width, 45);
+            this.lblTitulo.SetBounds(0, 100, this.panelCard.Width, 45);
 
             // ===== SUBTÍTULO =====
             this.lblSubTitulo.Text = "Iniciar Sesión";
             this.lblSubTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
             this.lblSubTitulo.ForeColor = Color.FromArgb(130, 130, 130);
             this.lblSubTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            this.lblSubTitulo.SetBounds(0, 125, this.panelCard.Width, 25);
+            this.lblSubTitulo.SetBounds(0, 155, this.panelCard.Width, 25);
 
             // ===== LABEL USUARIO =====
             this.lblUsuarioTitle.Text = "Usuario";
@@ -101,12 +111,12 @@ namespace CLIESC_EUREKA_REST_DOT_GR08
             this.lblUsuarioTitle.ForeColor = Color.FromArgb(90, 90, 90);
             this.lblUsuarioTitle.AutoSize = true;
             this.lblUsuarioTitle.Left = 50;
-            this.lblUsuarioTitle.Top = 175;
+            this.lblUsuarioTitle.Top = 270;
 
             // ===== TXT USUARIO =====
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 14F); // tamaño de texto
             this.txtUsuario.Left = 50;
-            this.txtUsuario.Top = 210;
+            this.txtUsuario.Top = 300;
             this.txtUsuario.Width = this.panelCard.Width - 100;
             this.txtUsuario.Height = 40; // más alto
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -114,16 +124,16 @@ namespace CLIESC_EUREKA_REST_DOT_GR08
 
             // ===== LABEL PASSWORD =====
             this.lblPasswordTitle.Text = "Contraseña";
-            this.lblPasswordTitle.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            this.lblPasswordTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             this.lblPasswordTitle.ForeColor = Color.FromArgb(90, 90, 90);
             this.lblPasswordTitle.AutoSize = true;
             this.lblPasswordTitle.Left = 50;
-            this.lblPasswordTitle.Top = 255;
+            this.lblPasswordTitle.Top = 350;
 
             // ===== TXT PASSWORD =====
             this.txtContrasena.Font = new System.Drawing.Font("Segoe UI Semibold", 14F); // tamaño de texto
             this.txtContrasena.Left = 50;
-            this.txtContrasena.Top = 290;
+            this.txtContrasena.Top = 390;
             this.txtContrasena.Width = this.panelCard.Width - 100;
             this.txtContrasena.Height = 40; // más alto
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -136,7 +146,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08
             this.btnLogin.FlatStyle = FlatStyle.Flat;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.Cursor = Cursors.Hand;
-            this.btnLogin.SetBounds(50, 345, this.panelCard.Width - 100, 50);
+            this.btnLogin.SetBounds(50, 490, this.panelCard.Width - 100, 50);
             this.btnLogin.Paint += new PaintEventHandler(this.BtnLogin_Paint);
 
             // ===== MENSAJE =====
@@ -147,6 +157,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08
             this.lblMensaje.SetBounds(25, 410, this.panelCard.Width - 50, 40);
 
             // ===== ADD CONTROLS =====
+            this.panelCard.Controls.Add(this.lblIconBank);
             this.panelCard.Controls.Add(this.lblTitulo);
             this.panelCard.Controls.Add(this.lblSubTitulo);
             this.panelCard.Controls.Add(this.lblUsuarioTitle);

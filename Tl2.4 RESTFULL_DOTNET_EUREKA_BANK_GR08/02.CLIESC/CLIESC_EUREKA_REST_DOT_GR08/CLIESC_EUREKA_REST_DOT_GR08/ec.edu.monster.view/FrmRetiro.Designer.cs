@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 {
-    partial class FrmRetiro
+  partial class FrmRetiro
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -175,7 +175,8 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.txtCuenta.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtCuenta.Location = new System.Drawing.Point(50, 210);
             this.txtCuenta.Name = "txtCuenta";
-            this.txtCuenta.Size = new System.Drawing.Size(1040, 20);
+            this.txtCuenta.Multiline = true;
+            this.txtCuenta.Size = new System.Drawing.Size(1040, 45);
             this.txtCuenta.TabIndex = 3;
             // 
             // lblMontoTitulo
@@ -196,7 +197,8 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.txtMonto.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtMonto.Location = new System.Drawing.Point(50, 290);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(1040, 20);
+            this.txtMonto.Multiline = true;
+            this.txtMonto.Size = new System.Drawing.Size(1040, 45);
             this.txtMonto.TabIndex = 5;
             // 
             // btnRetirar

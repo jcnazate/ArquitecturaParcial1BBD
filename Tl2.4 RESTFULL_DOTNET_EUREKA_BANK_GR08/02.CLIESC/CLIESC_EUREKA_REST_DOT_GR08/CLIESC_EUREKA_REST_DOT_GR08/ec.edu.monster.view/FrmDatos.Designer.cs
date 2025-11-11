@@ -178,7 +178,8 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.txtCuenta.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtCuenta.Location = new System.Drawing.Point(40, 110);
             this.txtCuenta.Name = "txtCuenta";
-            this.txtCuenta.Size = new System.Drawing.Size(1080, 20);
+            this.txtCuenta.Multiline = true;
+            this.txtCuenta.Size = new System.Drawing.Size(1080, 42);
             this.txtCuenta.TabIndex = 2;
             // 
             // btnConsultar
@@ -189,7 +190,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(40, 155);
+            this.btnConsultar.Location = new System.Drawing.Point(40, 172);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(1080, 50);
             this.btnConsultar.TabIndex = 3;
@@ -200,7 +201,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             // 
             // panelInfo
             // 
-            this.panelInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(75)))), ((int)(((byte)(162)))));
+            this.panelInfo.BackColor = System.Drawing.Color.Transparent;
             this.panelInfo.Controls.Add(this.lblInfoTitulo);
             this.panelInfo.Controls.Add(this.lblCodCuentaLabel);
             this.panelInfo.Controls.Add(this.lblCodCuentaValue);

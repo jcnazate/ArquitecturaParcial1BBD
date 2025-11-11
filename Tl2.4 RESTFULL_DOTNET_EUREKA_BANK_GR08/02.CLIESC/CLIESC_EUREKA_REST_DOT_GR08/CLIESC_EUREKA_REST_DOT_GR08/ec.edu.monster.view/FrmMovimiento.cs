@@ -6,15 +6,17 @@ using CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.controller;
 
 namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 {
-    public partial class FrmMovimiento : Form
+   public partial class FrmMovimiento : Form
     {
+        private Form FrmMenu;
         public event EventHandler BuscarClicked;
 
         public FrmMovimiento()
         {
             InitializeComponent();
+            FrmMenu = FrmMenu;
             // Controlador (usa las propiedades/métodos públicos del form)
-            new MovimientosController(this);
+            new MovimientoController(this);
 
             // Placeholder para la cuenta
             SetPlaceholder(txtCuenta, "Ingrese el número de cuenta");
@@ -70,10 +72,14 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 
         private void FrmMovimientos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Si este form es pantalla principal, puedes cerrar toda la app.
-            // Si NO, cámbialo por this.Hide() o DialogResult.
-            Application.Exit();
+            // Si tenemos un menú de donde venimos, lo mostramos al cerrar
+            if (FrmMenu != null)
+            {
+                FrmMenu.Show();
+            }
+            // No llamamos a Application.Exit() aquí
         }
+
 
 
         // === Estilo: tarjeta redondeada ===
@@ -192,7 +198,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
     }
 }

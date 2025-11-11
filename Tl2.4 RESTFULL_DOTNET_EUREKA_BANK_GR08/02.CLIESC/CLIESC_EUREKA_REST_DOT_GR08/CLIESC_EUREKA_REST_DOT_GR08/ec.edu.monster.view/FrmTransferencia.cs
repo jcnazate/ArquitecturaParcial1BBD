@@ -15,7 +15,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
         {
             InitializeComponent();
             // Cuando tengas el controlador:
-             new TransferenciaController(this);
+            new TransferenciaController(this);
         }
 
         // === API pública para el controlador ===
@@ -160,3 +160,6 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
         }
     }
 }
+
+
+

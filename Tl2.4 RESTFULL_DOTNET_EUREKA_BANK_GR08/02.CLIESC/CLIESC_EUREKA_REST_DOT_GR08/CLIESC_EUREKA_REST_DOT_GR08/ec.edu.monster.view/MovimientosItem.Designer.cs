@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 {
-    partial class MovimientosItem
+  partial class MovimientosItem
     {
         private System.ComponentModel.IContainer components = null;
 

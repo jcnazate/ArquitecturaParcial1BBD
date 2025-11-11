@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 {
-    public partial class MovimientosItem : UserControl
+public partial class MovimientosItem : UserControl
     {
         public MovimientosItem()
         {
@@ -46,6 +46,18 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             get => lblAccion.Text;
             set => lblAccion.Text = value;
         }
+        public Color AccionColor
+        {
+            get => lblAccion.ForeColor;
+            set => lblAccion.ForeColor = value;
+        }
+
+        public Color ImporteColor
+        {
+            get => lblImporte.ForeColor;
+            set => lblImporte.ForeColor = value;
+        }
+
 
         public string Importe
         {

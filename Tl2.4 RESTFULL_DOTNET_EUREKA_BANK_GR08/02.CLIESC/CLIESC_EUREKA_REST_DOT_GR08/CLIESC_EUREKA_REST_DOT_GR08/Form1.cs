@@ -46,6 +46,34 @@ namespace CLIESC_EUREKA_REST_DOT_GR08
             get => lblMensaje.ForeColor;
             set => lblMensaje.ForeColor = value;
         }
+        private void LblTitulo_Paint(object sender, PaintEventArgs e)
+{
+    e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+    var rect = lblTitulo.ClientRectangle;
+    if (rect.Width <= 0 || rect.Height <= 0) return;
+
+    using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+               rect,
+               Color.FromArgb(102, 126, 234),   // azul
+               Color.FromArgb(118, 75, 162),   // morado
+               0f))
+    {
+        var sf = new StringFormat
+        {
+            Alignment = StringAlignment.Center,
+            LineAlignment = StringAlignment.Center
+        };
+
+        e.Graphics.DrawString(
+            lblTitulo.Text,
+            lblTitulo.Font,
+            brush,
+            rect,
+            sf);
+    }
+}
+
 
         private async Task BtnLogin_ClickAsync()
         {

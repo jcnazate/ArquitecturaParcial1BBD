@@ -5,7 +5,7 @@ using CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.controller;
 
 namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
 {
-    public partial class FrmDeposito : Form
+  public partial class FrmDeposito : Form
     {
         public event EventHandler DepositarClicked;
         public event EventHandler VolverMenuClicked;
@@ -155,3 +155,4 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
         }
     }
 }
+

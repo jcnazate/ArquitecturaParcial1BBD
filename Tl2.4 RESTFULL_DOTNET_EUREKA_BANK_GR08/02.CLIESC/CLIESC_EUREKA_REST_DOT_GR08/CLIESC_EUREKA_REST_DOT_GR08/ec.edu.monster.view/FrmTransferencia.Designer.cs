@@ -181,7 +181,8 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.txtCuentaOrigen.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtCuentaOrigen.Location = new System.Drawing.Point(50, 210);
             this.txtCuentaOrigen.Name = "txtCuentaOrigen";
-            this.txtCuentaOrigen.Size = new System.Drawing.Size(1040, 20);
+            this.txtCuentaOrigen.Multiline = true;
+            this.txtCuentaOrigen.Size = new System.Drawing.Size(1040, 45);
             this.txtCuentaOrigen.TabIndex = 3;
             // 
             // lblCuentaDestinoTitulo
@@ -202,7 +203,8 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.txtCuentaDestino.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtCuentaDestino.Location = new System.Drawing.Point(50, 290);
             this.txtCuentaDestino.Name = "txtCuentaDestino";
-            this.txtCuentaDestino.Size = new System.Drawing.Size(1040, 20);
+            this.txtCuentaDestino.Multiline = true;
+            this.txtCuentaDestino.Size = new System.Drawing.Size(1040, 45);
             this.txtCuentaDestino.TabIndex = 5;
             // 
             // lblMontoTitulo
@@ -223,7 +225,8 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.txtMonto.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtMonto.Location = new System.Drawing.Point(50, 370);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(1040, 20);
+            this.txtMonto.Multiline = true;
+            this.txtMonto.Size = new System.Drawing.Size(1040, 45);
             this.txtMonto.TabIndex = 7;
             // 
             // btnTransferir

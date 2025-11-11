@@ -5,10 +5,14 @@
 /target/
 **/target/
 *.war
-t a r g e t /  
+t a r g e t / 
+ 
  # Visual Studio
 .vs/
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
+
+# Evitar node_modules
+node_modules/

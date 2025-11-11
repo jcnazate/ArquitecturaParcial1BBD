@@ -44,8 +44,8 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             // 
             // panelCard
             // 
-            this.panelCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCard.BackColor = System.Drawing.Color.White;
             this.panelCard.Controls.Add(this.btnVolver);
@@ -105,12 +105,13 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.txtCuenta.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtCuenta.Location = new System.Drawing.Point(40, 135);
             this.txtCuenta.Name = "txtCuenta";
-            this.txtCuenta.Size = new System.Drawing.Size(940, 26);
+            this.txtCuenta.Multiline = true;
+            this.txtCuenta.Size = new System.Drawing.Size(940, 42);
             this.txtCuenta.TabIndex = 3;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(75)))), ((int)(((byte)(162)))));
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent; 
             this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -123,6 +124,7 @@ namespace CLIESC_EUREKA_REST_DOT_GR08.ec.edu.monster.view
             this.btnBuscar.Text = "🔍 Consultar Movimientos";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Paint += new System.Windows.Forms.PaintEventHandler(this.btnBuscar_Paint);
             // 
             // flowLayoutPanel
             // 
